@@ -61,10 +61,10 @@ export default function Card() {
                 </div>
                 <div className="h-[90vh] flex flex-col items-center rounded-3xl justify-center gap-10 bg-opacity-80">
                     <div>
-                        <div className="text-4xl font-bold">Create new account</div>
+                        <div className="text-4xl font-bold mb-1">Create new account</div>
                         <div className="flex">
                             <span className="text-sm">Already have an account? </span>
-                            <Link href="" className="text-sm ml-1 text-blue-600 underline font-semibold">Sign in</Link>
+                            <Link href="" className="text-sm ml-1 text-blue-600 underline font-semibold hover:text-blue-800">Sign in</Link>
                         </div>
                     </div>
                     <form className="w-80 gap-6 flex flex-col font-semibold" onSubmit={handleSubmit}>
@@ -79,9 +79,9 @@ export default function Card() {
                         />
                         <Input type="email" id="email" placeholder="Email" value={formData.email} onChange={handleChange} className="rounded-xl py-6" />
                         <Input type="email" id="thaparEmail" placeholder="Thapar Email" value={formData.thaparEmail} onChange={handleChange} className="rounded-xl py-6" />
-                        <Input type="number" id="rollNo" placeholder="Roll Number" value={formData.rollNo} onChange={handleChange} className="rounded-xl py-6" />
+                        <Input type="number" id="rollNo" placeholder="Roll Number" value={formData.rollNo} onChange={handleChange} className="rounded-xl py-6 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
                         <Input type="password" id="password" placeholder="Password" value={formData.password} onChange={handleChange} className="rounded-xl py-6" />
-                        <Button type="submit" disabled={loading} className="rounded-xl py-6 bg-blue-500">
+                        <Button type="submit" disabled={loading} className="rounded-xl py-6 bg-blue-700 hover:bg-blue-800">
                             {loading ? "Signing up..." : "Sign up"}
                         </Button>
                     </form>
@@ -92,8 +92,8 @@ export default function Card() {
                 alt=""
                 className="object-fill w-[90vw] h-[90vh] rounded-l-3xl absolute z-0"
             />
-            <div className="ml-[30vw] h-[80vh] w-[50vw] overflow-clip contain-content">
-                <div className="bg-[#072836] bg-opacity-80 w-[100vw] h-[200vh] -mt-24 absolute overflow-clip rotate-12"></div>
+            <div className="ml-[33vw] h-[90vh] w-[57vw] overflow-clip contain-content absolute">
+                <div className="bg-[#072836] bg-opacity-80 w-[150vw] h-[200vh] mt-10 absolute overflow-clip rotate-12 z-10"></div>
             </div>
         </div>
     );
