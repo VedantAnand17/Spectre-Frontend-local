@@ -6,16 +6,35 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [allUser, setAllUser] = useState(null);
+  const [team, setTeam] = useState(null);
+  const [joinRequest, setJoinRequest] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    // Check for the user in sessionStorage on component mount
-    const storedUser = sessionStorage.getItem("user");
-    if (storedUser) {
-      setIsLoggedIn(true);
-      setUser(JSON.parse(storedUser));
+    { user && getUserById(user?.id); }
+    getAllUser();
+  }, [])
+
+  const getAllUser = async () => {
+    try {
+      const response = await api.get("/users/all");
+      // console.log("all user", response.data);
+      setAllUser(response.data);
+    } catch (error) {
+      console.error("Error fetching users:", error);
     }
-  }, []);
+  };
+
+  const getUserById = async (userId) => {
+    try {
+      const response = await api.get(`/users/${userId}`);
+      console.log("user by id", response);
+      // setUser(response.data);
+    } catch (error) {
+      console.error("Error fetching user by ID:", error);
+    }
+  };
 
   const register = async (userData) => {
     try {
@@ -24,7 +43,6 @@ export const AuthProvider = ({ children }) => {
         const registeredUser = response.data.user;
         setIsLoggedIn(true);
         setUser(registeredUser);
-        sessionStorage.setItem("user", JSON.stringify(registeredUser));
         return { success: true, message: "Registration successful!" };
       } else {
         return { success: false, message: "Registration failed. Please try again." };
@@ -42,7 +60,6 @@ export const AuthProvider = ({ children }) => {
         const loggedInUser = response.data.user;
         setIsLoggedIn(true);
         setUser(loggedInUser);
-        sessionStorage.setItem("user", JSON.stringify(loggedInUser));
         return { success: true, message: "Login successful!" };
       } else {
         return { success: false, message: "Login failed. Please check your credentials." };
@@ -54,14 +71,24 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    // Remove user info from sessionStorage and set user to null
     setIsLoggedIn(false);
-    sessionStorage.removeItem("user");
     setUser(null);
   };
 
   return (
-    <AuthContext.Provider value={{ user, setUser, register, login, logout, isLoggedIn }}>
+    <AuthContext.Provider value={{
+      user,
+      setUser,
+      team,
+      setTeam,
+      allUser,
+      joinRequest,
+      setJoinRequest,
+      register,
+      login,
+      logout,
+      isLoggedIn
+    }}>
       {children}
     </AuthContext.Provider>
   );
