@@ -65,7 +65,7 @@ export default function Login() {
                             <div className="text-4xl font-bold mb-1">Create new account</div>
                             <div className="flex">
                                 <span className="text-sm">Already have an account? </span>
-                                <Link href="" className="text-sm ml-1 text-blue-600 underline font-semibold hover:text-blue-800">Sign in</Link>
+                                <Link to="/register" className="text-sm ml-1 text-blue-600 underline font-semibold hover:text-blue-800">Register</Link>
                             </div>
                         </div>
                         <form className="w-80 gap-6 flex flex-col font-semibold" onSubmit={handleSubmit}>
