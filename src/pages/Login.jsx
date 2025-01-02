@@ -8,21 +8,12 @@ import { Link } from "react-router-dom";
 
 export default function Login() {
     const [formData, setFormData] = useState({
-        username: "",
-        phoneNumber: "",
         email: "",
-        thaparEmail: "",
         password: "",
-        role: "student",
-        collageName: null,
-        position: null,
-        rollNo: "",
-        teamName: null,
-        year: null
     });
     const [loading, setLoading] = useState(false);
 
-    const { register } = useContext(AuthContext);
+    const { login } = useContext(AuthContext);
 
     // Handle input changes
     const handleChange = (e) => {
@@ -37,7 +28,7 @@ export default function Login() {
         e.preventDefault();
         setLoading(true);
         console.log(formData);
-        const response = await register(formData);
+        const response = await login(formData);
 
         if (response.success) {
             toast.success(response.message);
