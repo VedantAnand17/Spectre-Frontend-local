@@ -1,24 +1,33 @@
 # Spectre CTF Registration Portal
 
-A modern registration portal for the Spectre CTF competition built with React, Vite, and Tailwind CSS.
+A modern registration portal for the Spectre CTF competition built with React, Vite, and Tailwind CSS. Features a sleek, responsive design with smooth animations and comprehensive user management.
 
 ## Features
 
-- User registration with comprehensive form validation
-- Secure authentication system
-- Responsive design with modern UI
-- Toast notifications for user feedback
-- Protected routes and session management
+- 🔐 Secure user authentication system
+- 📱 Fully responsive design
+- 🎨 Modern UI with glassmorphism effects
+- ⚡ Fast performance with Vite
+- 🔄 Real-time form validation
+- 📨 Toast notifications for user feedback
+- 🛣️ Protected routes with React Router
+- 🎯 Team management system
+- 🌐 RESTful API integration
 
 ## Tech Stack
 
 - **Frontend Framework:** React 18
 - **Build Tool:** Vite
-- **Styling:** Tailwind CSS
-- **UI Components:** shadcn/ui
-- **Routing:** React Router DOM
+- **Styling:** 
+  - Tailwind CSS
+  - shadcn/ui components
+  - CSS animations
+- **State Management:** React Context
+- **Form Handling:** Native React forms
+- **Routing:** React Router DOM v7
 - **HTTP Client:** Axios
 - **Notifications:** React Toastify
+- **Icons:** Lucide React
 
 ## Getting Started
 
@@ -53,11 +62,39 @@ The application will be available at `http://localhost:5173`
 src/
 ├── api/          # API configuration and endpoints
 ├── components/   # Reusable UI components
-├── context/      # React context providers
-├── lib/          # Utility functions
-├── pages/        # Page components
-└── main.jsx      # Application entry point
+│   ├── ui/      # Base UI components (shadcn/ui)
+│   └── Card.jsx # Registration card component
+├── context/     # React context providers
+│   └── AuthContext.jsx # Authentication context
+├── lib/         # Utility functions
+├── pages/       # Page components
+│   ├── Landing.jsx   # Home page
+│   ├── Login.jsx     # Login page
+│   ├── Register.jsx  # Registration page
+│   └── Profile.jsx   # User profile page
+└── main.jsx     # Application entry point
 ```
+
+## Features in Detail
+
+### Authentication
+- Email-based authentication
+- Secure password handling
+- Protected routes for authenticated users
+- Persistent session management
+
+### User Interface
+- Glassmorphism design elements
+- Responsive layout for all screen sizes
+- Interactive form elements
+- Loading states and animations
+- Toast notifications for user feedback
+
+### Team Management
+- Team creation and joining
+- Team member management
+- Team leader controls
+- Join request system
 
 ## Available Scripts
 
@@ -77,3 +114,10 @@ src/
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- [shadcn/ui](https://ui.shadcn.com/) for beautiful UI components
+- [Tailwind CSS](https://tailwindcss.com/) for utility-first CSS
+- [Vite](https://vitejs.dev/) for the blazing fast build tool
+- [React Router](https://reactrouter.com/) for client-side routing

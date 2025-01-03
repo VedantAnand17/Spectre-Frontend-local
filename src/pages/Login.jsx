@@ -44,16 +44,14 @@ export default function Login() {
             <div className="h-[90vh] m-auto w-[90vw] rounded-3xl ">
                 <div className="h-[90vh] content-center w-[90vw] rounded-3xl z-50 container m-auto grid grid-cols-2 text-8xl text-white absolute">
                     <div className="flex flex-col justify-center items-center">
-                        <div className="backdrop-blur-sm rounded-3xl">
-                            <div className="text-8xl font-bold mb-4">Spectre</div>
-                            <div className="text-xl max-w-md mb-8">
-                                Welcome to the virtual arena of Spectre CTF—a world where the lines between reality and imagination blur, and your skills are your most powerful weapon.
-                            </div>
+                        <div className=" rounded-3xl">
+                            <div className="text-8xl font-bold mb-16 underline backdrop-blur-sm rounded-xl">Spectre</div>
+
 
                             <div className="flex gap-4">
 
                                 <a href="" className="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-x"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-x"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
                                 </a>
 
                                 <a href="" className="">
@@ -67,7 +65,7 @@ export default function Login() {
                             </div>
                         </div>
                     </div>
-                    <div className="h-[90vh] flex flex-col items-center rounded-3xl justify-center gap-12 bg-opacity-80">
+                    <div className="h-[90vh] flex flex-col items-center rounded-3xl justify-center gap-10 bg-opacity-80">
                         <div>
                             <div className="text-4xl font-bold mb-1">Create new account</div>
                             <div className="flex">
@@ -100,6 +98,7 @@ export default function Login() {
                     alt=""
                     className="object-fill w-[90vw] h-[90vh] rounded-l-3xl absolute z-0"
                 />
+                <img src="https://cdn.discordapp.com/attachments/1314526467144814635/1324343797273985034/WhatsApp_Image_2024-12-16_at_19.56.38_b381d835-removebg-preview_5.png?ex=6777cec6&is=67767d46&hm=f30fa15fe7f027bcc9a4c30ea8553b0978ebaf1d15cca5ae1b8b5aaf0286707a&" alt="" className="absolute ml-6" />
                 <div className="ml-[33vw] h-[90vh] w-[57vw] overflow-clip contain-content absolute">
                     <div className="bg-[#072836] bg-opacity-80 w-[150vw] h-[200vh] mt-10 absolute overflow-clip rotate-12 z-10"></div>
                 </div>

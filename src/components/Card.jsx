@@ -52,11 +52,8 @@ export default function Card() {
         <div className="h-[90vh] m-auto w-[90vw] rounded-3xl ">
             <div className="h-[90vh] content-center w-[90vw] rounded-3xl z-50 container m-auto grid grid-cols-2 text-8xl text-white absolute">
                 <div className="flex flex-col justify-center items-center">
-                    <div className="backdrop-blur-sm rounded-3xl">
-                        <div className="text-8xl font-bold mb-4">Spectre</div>
-                        <div className="text-xl max-w-md mb-8">
-                            Welcome to the virtual arena of Spectre CTF—a world where the lines between reality and imagination blur, and your skills are your most powerful weapon.
-                        </div>
+                    <div className=" rounded-3xl">
+                        <div className="text-8xl font-bold mb-16 underline backdrop-blur-sm rounded-xl">Spectre</div>
 
                         <div className="flex gap-4">
 
@@ -80,23 +77,24 @@ export default function Card() {
                         <div className="text-4xl font-bold mb-1">Create new account</div>
                         <div className="flex">
                             <span className="text-sm">Already have an account? </span>
-                            <Link to="/login" className="text-sm ml-1 text-blue-600 underline font-semibold hover:text-blue-800">Sign in</Link>
+                            <Link to="/login" className="text-sm ml-1 text-blue-600 underline font-semibold hover:text-blue-800">Login</Link>
                         </div>
                     </div>
                     <form className="w-80 gap-6 flex flex-col font-semibold" onSubmit={handleSubmit}>
                         <Input type="text" id="username" placeholder="Username" value={formData.username} onChange={handleChange} className="rounded-xl py-6" />
-                        <Input
+                        {/* <Input
                             type="number"
                             id="phoneNumber"
                             placeholder="Phone Number"
                             value={formData.phoneNumber}
                             onChange={handleChange}
                             className="rounded-xl py-6 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                        />
+                        /> */}
                         <Input type="email" id="email" placeholder="Email" value={formData.email} onChange={handleChange} className="rounded-xl py-6" />
-                        <Input type="email" id="thaparEmail" placeholder="Thapar Email" value={formData.thaparEmail} onChange={handleChange} className="rounded-xl py-6" />
-                        <Input type="number" id="rollNo" placeholder="Roll Number" value={formData.rollNo} onChange={handleChange} className="rounded-xl py-6 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
+                        {/* <Input type="email" id="thaparEmail" placeholder="Thapar Email" value={formData.thaparEmail} onChange={handleChange} className="rounded-xl py-6" /> */}
+                        {/* <Input type="number" id="rollNo" placeholder="Roll Number" value={formData.rollNo} onChange={handleChange} className="rounded-xl py-6 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" /> */}
                         <Input type="password" id="password" placeholder="Password" value={formData.password} onChange={handleChange} className="rounded-xl py-6" />
+                        <Input type="text" id="pin" placeholder="Pin in Mail" value={formData.password} onChange={handleChange} className="rounded-xl py-6" />
                         <Button type="submit" disabled={loading} className="rounded-xl py-6 bg-blue-700 hover:bg-blue-800">
                             {loading ? "Registering..." : "Register"}
                         </Button>
@@ -108,6 +106,7 @@ export default function Card() {
                 alt=""
                 className="object-fill w-[90vw] h-[90vh] rounded-l-3xl absolute z-0"
             />
+            <img src="https://cdn.discordapp.com/attachments/1314526467144814635/1324343797273985034/WhatsApp_Image_2024-12-16_at_19.56.38_b381d835-removebg-preview_5.png?ex=6777cec6&is=67767d46&hm=f30fa15fe7f027bcc9a4c30ea8553b0978ebaf1d15cca5ae1b8b5aaf0286707a&" alt="" className="absolute ml-6" />
             <div className="ml-[33vw] h-[90vh] w-[57vw] overflow-clip contain-content absolute">
                 <div className="bg-[#072836] bg-opacity-80 w-[150vw] h-[200vh] mt-10 absolute overflow-clip rotate-12 z-10"></div>
             </div>
