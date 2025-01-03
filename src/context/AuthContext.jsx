@@ -12,8 +12,9 @@ export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    { user && getUserById(user?.id); }
-    getAllUser();
+  // { user && getUserById(user?.id); }
+  // { user?.teamName && getUserTeam(user?.teamName); }
+  getAllUser();
   }, [])
 
   const getAllUser = async () => {
@@ -22,17 +23,27 @@ export const AuthProvider = ({ children }) => {
       // console.log("all user", response.data);
       setAllUser(response.data);
     } catch (error) {
-      console.error("Error fetching users:", error);
+      // console.error("Error fetching users:", error);
     }
   };
 
   const getUserById = async (userId) => {
     try {
       const response = await api.get(`/users/${userId}`);
-      console.log("user by id", response);
-      // setUser(response.data);
+      // console.log("user by id", response);
+      setUser(response.data);
     } catch (error) {
-      console.error("Error fetching user by ID:", error);
+      // console.error("Error fetching user by ID:", error);
+    }
+  };
+
+  const getUserTeam = async (teamName) => {
+    try {
+      const response = await api.get(`/teams/${teamName}`);
+      // console.log("user team", response);
+      setTeam(response.data.body);
+    } catch (error) {
+      // console.error("Error fetching user by ID:", error);
     }
   };
 
@@ -48,7 +59,7 @@ export const AuthProvider = ({ children }) => {
         return { success: false, message: "Registration failed. Please try again." };
       }
     } catch (error) {
-      console.error("Error during registration:", error);
+      // console.error("Error during registration:", error);
       return { success: false, message: error.response?.data || "An error occurred during registration." };
     }
   };
@@ -65,7 +76,7 @@ export const AuthProvider = ({ children }) => {
         return { success: false, message: "Login failed. Please check your credentials." };
       }
     } catch (error) {
-      console.error("Error during login:", error);
+      // console.error("Error during login:", error);
       return { success: false, message: error.response?.data || "An error occurred during login." };
     }
   };
@@ -87,6 +98,9 @@ export const AuthProvider = ({ children }) => {
       register,
       login,
       logout,
+      getUserTeam,
+      getAllUser,
+      getUserById,
       isLoggedIn
     }}>
       {children}
