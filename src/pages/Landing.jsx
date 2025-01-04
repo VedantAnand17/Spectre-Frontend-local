@@ -14,7 +14,7 @@ export default function Landing() {
             </div>
             <div className="h-screen w-screen absolute text-white">
                 <div className="flex lg:gap-60 lg:justify-around items-center h-screen text-xl max-lg:flex-col max-lg:justify-end ">
-                    <div className="max-lg:flex-col gap-60 justify-around lg:w-screen flex ml-8 max-lg:gap-10 pb-4">
+                    <div className="max-lg:flex-col gap-60 justify-around lg:w-screen flex ml-8 max-lg:gap-10 pb-4 items-center">
                         {/* <Button className="bg-[#4F4D4D] p-6 rounded-3xl uppercase hover:bg-[#333232] text-xl font-bold">Register</Button> */}
                         {!isLoggedIn && <>
                             <Link to="/register">
