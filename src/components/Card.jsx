@@ -5,6 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
+import HyperText  from "./ui/hyper-text";
 
 export default function Card() {
     const [formData, setFormData] = useState({
@@ -51,10 +52,11 @@ export default function Card() {
 
     return (
         <div className="h-[90vh] m-auto w-[90vw] rounded-3xl contain-content overflow-hidden">
-            <div className="h-[90vh] content-center w-[90vw] rounded-3xl z-50 container m-auto flex justify-evenly max-md:flex-col text-8xl text-white absolute">
+            <div className="h-[90vh] content-center w-[90vw] rounded-3xl z-50 container m-auto flex justify-around max-md:flex-col text-8xl text-white absolute">
                 <div className="flex flex-col justify-center items-center">
                     <div className=" rounded-3xl">
-                        <div className="text-8xl font-bold md:mb-16 underline backdrop-blur-sm rounded-xl max-md:text-6xl max-md:mt-28">Spectre</div>
+                        {/* <div className="text-8xl font-bold md:mb-16 underline backdrop-blur-sm rounded-xl max-md:text-6xl max-md:mt-28">Spectre</div> */}
+                        <HyperText duration={1000} className="text-8xl font-bold md:mb-16 underline backdrop-blur-sm rounded-xl max-md:text-6xl max-md:mt-28 ">Spectre</HyperText>
 
                         <div className="flex gap-4 max-md:hidden">
 
