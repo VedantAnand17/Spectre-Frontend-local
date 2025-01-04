@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 import { AuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Card() {
     const [formData, setFormData] = useState({
@@ -21,7 +21,7 @@ export default function Card() {
         year: null
     });
     const [loading, setLoading] = useState(false);
-
+    const navigate = useNavigate();
     const { register } = useContext(AuthContext);
 
     // Handle input changes
@@ -36,11 +36,12 @@ export default function Card() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-        console.log(formData);
+        // console.log(formData);
         const response = await register(formData);
 
         if (response.success) {
             toast.success(response.message);
+            navigate("/profile");
         } else {
             toast.error(response.message);
         }
@@ -57,22 +58,22 @@ export default function Card() {
 
                         <div className="flex gap-4">
 
-                            <a href="" className="">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-x"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
-                            </a>
+                            <Link target="_blank" to="" className="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-brand-x"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
+                            </Link>
 
-                            <a href="" className="">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" /></svg>
-                            </a>
+                            <Link target="_blank" to="" className="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" /></svg>
+                            </Link>
 
-                            <a href="" className="">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg>
-                            </a>
+                            <Link target="_blank" to="" className="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg>
+                            </Link>
 
                         </div>
                     </div>
                 </div>
-                <div className="h-[90vh] flex flex-col items-center rounded-3xl justify-center gap-10 bg-opacity-80">
+                <div className="h-[90vh] flex flex-col items-center rounded-3xl justify-center gap-5 bg-opacity-80">
                     <div>
                         <div className="text-4xl font-bold mb-1">Create new account</div>
                         <div className="flex">
@@ -91,10 +92,10 @@ export default function Card() {
                             className="rounded-xl py-6 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                         /> */}
                         <Input type="email" id="email" placeholder="Email" value={formData.email} onChange={handleChange} className="rounded-xl py-6" />
-                        {/* <Input type="email" id="thaparEmail" placeholder="Thapar Email" value={formData.thaparEmail} onChange={handleChange} className="rounded-xl py-6" /> */}
-                        {/* <Input type="number" id="rollNo" placeholder="Roll Number" value={formData.rollNo} onChange={handleChange} className="rounded-xl py-6 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" /> */}
+                        <Input type="email" id="thaparEmail" placeholder="Thapar Email" value={formData.thaparEmail} onChange={handleChange} className="rounded-xl py-6" />
+                        <Input type="number" id="phoneNumber" placeholder="Phone Number" value={formData.phoneNumber} onChange={handleChange} className="rounded-xl py-6 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
                         <Input type="password" id="password" placeholder="Password" value={formData.password} onChange={handleChange} className="rounded-xl py-6" />
-                        <Input type="text" id="pin" placeholder="Pin in Mail" value={formData.password} onChange={handleChange} className="rounded-xl py-6" />
+                        {/* <Input type="text" id="pin" placeholder="Pin in Mail" value={formData.password} onChange={handleChange} className="rounded-xl py-6" /> */}
                         <Button type="submit" disabled={loading} className="rounded-xl py-6 bg-blue-700 hover:bg-blue-800">
                             {loading ? "Registering..." : "Register"}
                         </Button>
