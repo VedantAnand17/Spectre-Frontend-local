@@ -58,7 +58,7 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         {/* Username */}
                         <div>
-                            <label htmlFor="username" className="block text-lg font-semibold mb-2">Username</label>
+                            <label htmlFor="Name" className="block text-lg font-semibold mb-2">Name</label>
                             <input
                                 type="text"
                                 id="username"
@@ -87,7 +87,7 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         {/* Thapar Email */}
-                        <div>
+                        {/* <div>
                             <label htmlFor="thaparEmail" className="block text-lg font-semibold mb-2">Thapar Email</label>
                             <input
                                 type="email"
@@ -98,7 +98,7 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
                                 onChange={(e) => setThaparEmail(e.target.value)}
                                 required
                             />
-                        </div>
+                        </div> */}
 
                         {/* Email */}
                         <div>
@@ -113,9 +113,6 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
                                 required
                             />
                         </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         {/* Phone Number */}
                         <div>
                             <label htmlFor="phoneNumber" className="block text-lg font-semibold mb-2">Phone Number</label>
@@ -129,6 +126,9 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
                                 required
                             />
                         </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
 
 
                         {/* Roll Number */}
@@ -144,9 +144,7 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
                                 required
                             />
                         </div>
-                    </div>
-
-                    {/* Year Dropdown */}
+                        {/* Year Dropdown */}
                     <div>
                         <label htmlFor="year" className="block text-lg font-semibold mb-2">Year</label>
                         <select
@@ -163,6 +161,8 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
                             <option value="4">4th Year</option>
                         </select>
                     </div>
+                    </div>
+
 
                     {/* Password */}
                     {/* <div>

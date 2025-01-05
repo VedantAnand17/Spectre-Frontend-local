@@ -123,17 +123,17 @@ export default function Profile() {
                             {!user.verified && <div className='text-sm text-red-500'>Please verify your account to create or join a team.</div>}
                             {user.username && <div className="">Username: {user.username}</div>}
                             {user.email && <div className="">Registered Mail ID: {user.email}</div>}
-                            {user.collegeName && <div className="">Collage Name: {user.collegeName}</div>}
-                            {user.thaparEmail && <div className="">Collage Mail ID: {user.thaparEmail}</div>}
-                            {user.rollNo && <div className="">Collage Roll NUmber: {user.rollNo}</div>}
+                            {user.collegeName && <div className="">College Name: {user.collegeName}</div>}
+                            {user.thaparEmail && <div className="">College Mail ID: {user.thaparEmail}</div>}
+                            {user.rollNo && <div className="">College Roll Number: {user.rollNo}</div>}
                             {user.year && <div className="">Year: {user.year}</div>}
                             {user.phoneNumber && <div className="">Phone Number: {user.phoneNumber}</div>}
                             {user.teamName && <div className="">TeamName: {user.teamName}</div>}
                         </div>
                     </div>
                     <div className="flex justify-center w-full">
-                        {team && user.rollNo == team.leaderRollNo && <Button onClick={() => handleDeleteTeam()} className='absolute bottom-4 left-10 bg-blue-700 hover:bg-blue-800 rounded-xl'>Delete team</Button>}
-                        <Button onClick={() => setIsEditModalOpen(true)} className='absolute bottom-4 bg-blue-700 hover:bg-blue-800 rounded-xl'>Edit Profile</Button>
+                        {team && user.rollNo == team.leaderRollNo && <Button onClick={() => handleDeleteTeam()} className='absolute bottom-4 content-center bg-blue-700 hover:bg-blue-800 rounded-xl'>Delete team</Button>}
+                        <Button onClick={() => setIsEditModalOpen(true)} className='absolute bottom-4 left-2 bg-blue-700 hover:bg-blue-800 rounded-xl'>Edit Profile</Button>
                         <Button
                             title='Verify Your Self To Create or Join a Team'
                             onClick={sendVerificationToken}

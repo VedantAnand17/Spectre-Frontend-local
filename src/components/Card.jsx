@@ -12,14 +12,14 @@ export default function Card() {
         username: "",
         phoneNumber: "",
         email: "",
-        thaparEmail: "",
+        // thaparEmail: "",
         password: "",
         role: "student",
-        collageName: null,
-        position: null,
-        rollNo: "",
-        teamName: null,
-        year: null
+        // collageName: null,
+        // position: null,
+        // rollNo: "",
+        // teamName: null,
+        // year: null
     });
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
