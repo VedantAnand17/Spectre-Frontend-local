@@ -105,13 +105,13 @@ export default function Profile() {
     }
 
     return (
-        <div className='max-w-screen min-h-screen relative'>
+        <div className='w-screen min-h-screen relative'>
 
             <img src="https://cdn.discordapp.com/attachments/1314526467144814635/1324463344521973770/image_133.png?ex=67783e1c&is=6776ec9c&hm=3f832a8ce3609fc8d31d7379db8eb1af5bc30508dc40253d1ad302fe3cf50acd&" className='h-screen w-screen absolute' alt="" />
 
-            <img src="https://cdn.discordapp.com/attachments/1314526467144814635/1324343797273985034/WhatsApp_Image_2024-12-16_at_19.56.38_b381d835-removebg-preview_5.png?ex=6777cec6&is=67767d46&hm=f30fa15fe7f027bcc9a4c30ea8553b0978ebaf1d15cca5ae1b8b5aaf0286707a&" className='absolute ml-6 max-md:h-14' alt="" />
+            <img src="https://github.com/VedantAnand17/voidImages/blob/main/owaspLogo.png?raw=true" className='absolute ml-6 max-md:h-14' alt="" />
 
-            <div className="h-screen max-w-screen flex justify-center items-center">
+            <div className="h-screen w-screen flex justify-center items-center">
                 <div className="bg-[#030925] bg-opacity-80 h-[80vh] w-[80vw] rounded-3xl m-auto absolute">
                     <img src="https://cdn.discordapp.com/attachments/1314526467144814635/1324475206554878106/image_144.png?ex=67784928&is=6776f7a8&hm=37591d94f44758dbb593aaf67b5655afe0350db26257c1b81af2820f37e644ef&" className='absolute h-[80vh] w-[80vw]' alt="" />
                     {/* <img src="https://cdn.discordapp.com/attachments/1314526467144814635/1324485243419365478/Group_63.png?ex=67785281&is=67770101&hm=34b859a2239301c06f11d8947b55972bcf93a81cf3c86c8b1075e20eebd34d23&" className='absolute max-lg:h-64 max-lg:ml-2 max-sm:h-28 max-lg:mt-24 max-sm:mt-16 ' alt="" /> */}
@@ -137,7 +137,7 @@ export default function Profile() {
                         <Button
                             title='Verify Your Self To Create or Join a Team'
                             onClick={sendVerificationToken}
-                            className="absolute bottom-4 right-10 bg-blue-700 hover:bg-blue-800 rounded-xl"
+                            className="absolute bottom-4 right-2 bg-blue-700 hover:bg-blue-800 rounded-xl"
                             disabled={user.verified || loading}
                         >
                             {loading ? 'Sending...' : user.verified ? 'Verified' : 'Verify Profile'}
