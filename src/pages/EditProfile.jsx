@@ -43,7 +43,7 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
 
     return (
         <div className="min-h-screen mx-auto rounded-xl absolute top-0 w-full text-white py-6 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto relative bg-gray-800 rounded-2xl p-8  shadow-lg">
+            <div className="max-w-4xl mx-auto relative bg-gray-800 p-8 rounded-lg shadow-lg">
                 <div className="flex items-center justify-between">
                     <button
                         onClick={closeEditModal}
@@ -51,7 +51,7 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
                     >
                         X
                     </button>
-                    <h1 className="text-3xl font-extrabold text-center justify-center text-white mb-6">Update Your Profile</h1>
+                    <h1 className="text-3xl font-extrabold text-center justify-center text-red-500 mb-6">Update Your Profile</h1>
                 </div>
 
                 <form onSubmit={handleUpdate} className="space-y-4">
