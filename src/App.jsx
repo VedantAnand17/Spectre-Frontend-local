@@ -14,19 +14,17 @@ import Navbar from "./components/Navbar"
 function App() {
   const { isLoggedIn } = useContext(AuthContext);
   return (
-    <>
+    <div className="min-h-screen max-w-screen">
       {isLoggedIn && <Navbar />}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/editProfile" element={<EditProfile />} />
         <Route path="/team" element={<TeamPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </>
+    </div>
   )
 }
 

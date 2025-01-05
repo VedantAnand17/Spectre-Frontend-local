@@ -95,7 +95,7 @@ export default function Card() {
                             className="rounded-xl py-6 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                         /> */}
                             <Input type="email" id="email" placeholder="Email" value={formData.email} onChange={handleChange} className="rounded-xl py-6 max-md:py-5" />
-                            <Input type="email" id="thaparEmail" placeholder="Thapar Email" value={formData.thaparEmail} onChange={handleChange} className="rounded-xl py-6 max-md:py-5" />
+                            {/* <Input type="email" id="thaparEmail" placeholder="Thapar Email" value={formData.thaparEmail} onChange={handleChange} className="rounded-xl py-6 max-md:py-5" /> */}
                             <Input type="number" id="phoneNumber" placeholder="Phone Number" value={formData.phoneNumber} onChange={handleChange} className="rounded-xl py-6 max-md:py-5 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
                             <Input type="password" id="password" placeholder="Password" value={formData.password} onChange={handleChange} className="rounded-xl py-6 max-md:py-5" />
                             {/* <Input type="text" id="pin" placeholder="Pin in Mail" value={formData.password} onChange={handleChange} className="rounded-xl py-6" /> */}
