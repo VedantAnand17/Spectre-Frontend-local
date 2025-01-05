@@ -13,7 +13,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-gray-900 text-white">
+    <nav className="bg-gray-900 text-white  ">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <Link onClick={() => setIsOpen(false)} to="/" className="text-2xl font-bold text-red-500">

@@ -62,7 +62,7 @@ export default function Login() {
                 <div className="h-[90vh] content-center w-[90vw] rounded-3xl z-50 container m-auto flex justify-around max-md:flex-col text-8xl text-white absolute">
                     <div className="flex flex-col justify-center items-center">
                         <div className=" rounded-3xl">
-                        <HyperText duration={1000} className="text-8xl font-bold md:mb-16 underline backdrop-blur-sm rounded-xl max-md:text-6xl max-md:mt-28 ">Spectre</HyperText>
+                        <HyperText duration={1000} className="text-8xl font-bold md:mb-16 underline backdrop-blur-sm rounded-xl max-md:text-6xl max-md:mt-28 max-sm:mt-16 ">Spectre</HyperText>
 
 
                             <div className="flex gap-4 max-md:hidden">
@@ -111,7 +111,7 @@ export default function Login() {
                             </form>
                         </div>
                     </div>
-                    <div className="flex gap-4 bottom-0 justify-center md:hidden">
+                    <div className="flex gap-4 bottom-0 justify-center md:hidden max-md:pb-2">
 
                         <Link to="" target="_blank" className="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" stroke-linejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-brand-x"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
