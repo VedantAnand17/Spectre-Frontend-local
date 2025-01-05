@@ -1,7 +1,3 @@
-"use client";
-import { FloatingNav } from "./ui/floating-navbar";
-import { IconHome, IconMessage, IconUser } from "@tabler/icons-react";
-
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
@@ -113,45 +109,4 @@ function Navbar() {
   );
 }
 
-export function FloatingNavDemo() {
-  const { logout, user } = useContext(AuthContext);
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    logout();
-    navigate("/");
-  };
-
-  const navItems = [
-    {
-      name: "Home",
-      link: "/",
-      icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
-    },
-    {
-      name: "Profile",
-      link: "/profile",
-      icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
-    },
-    
-  ];
-
-  if (!user.teamName && user.verified) {
-    navItems.push({
-      name: "Team",
-      link: "/team",
-      icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
-    });
-  }
-
-  return (
-    <div className="relative w-full">
-      <FloatingNav className=" backdrop-blur-xl bg-transparent border-blue-800" navItems={navItems} />
-      
-    </div>
-  );
-}
-
-
-
-export default FloatingNavDemo;
+export default Navbar;
