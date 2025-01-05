@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
 import api from "../api/api";
 
-function EditProfile() {
+function EditProfile({ closeEditModal, isEditModalOpen }) {
     const { isLoggedIn, user, getUserById } = useContext(AuthContext);
     const [username, setUsername] = useState(user?.username);
     const [collegeName, setCollegeName] = useState(user?.collegeName || "");
@@ -33,99 +33,117 @@ function EditProfile() {
             toast.success("Profile Updated successful!");
             getUserById(user.id);
             navigate("/profile");
+            closeEditModal();
         } else {
             toast.error(result.message);
         }
     };
 
+    if (!isEditModalOpen) return null;
+
     return (
-        <div className="min-h-screen bg-gray-900 text-white py-6 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
-                <h1 className="text-3xl font-extrabold text-center text-red-500 mb-6">Update Your Profile</h1>
+        <div className="min-h-screen mx-auto rounded-xl absolute top-0 w-full text-white py-6 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto relative bg-gray-800 p-8 rounded-lg shadow-lg">
+                <div className="flex items-center justify-between">
+                    <button
+                        onClick={closeEditModal}
+                        className="absolute top-2 right-2 text-white bg-red-500 px-2 py-1 rounded hover:bg-red-600"
+                    >
+                        X
+                    </button>
+                    <h1 className="text-3xl font-extrabold text-center justify-center text-red-500 mb-6">Update Your Profile</h1>
+                </div>
 
                 <form onSubmit={handleUpdate} className="space-y-4">
-                    {/* Username */}
-                    <div>
-                        <label htmlFor="username" className="block text-lg font-semibold mb-2">Username</label>
-                        <input
-                            type="text"
-                            id="username"
-                            className="w-full p-3 bg-gray-700 text-white rounded-md"
-                            placeholder="Enter Your name"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                            required
-                        />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        {/* Username */}
+                        <div>
+                            <label htmlFor="username" className="block text-lg font-semibold mb-2">Username</label>
+                            <input
+                                type="text"
+                                id="username"
+                                className="w-full p-3 bg-gray-700 text-white rounded-md"
+                                placeholder="Enter Your name"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                                required
+                            />
+                        </div>
+
+                        {/* College Name */}
+                        <div>
+                            <label htmlFor="collegeName" className="block text-lg font-semibold mb-2">College Name</label>
+                            <input
+                                type="text"
+                                id="collegeName"
+                                className="w-full p-3 bg-gray-700 text-white rounded-md"
+                                placeholder="Thapar University"
+                                value={collegeName}
+                                onChange={(e) => setCollegeName(e.target.value)}
+                                required
+                            />
+                        </div>
                     </div>
 
-                    {/* College Name */}
-                    <div>
-                        <label htmlFor="collegeName" className="block text-lg font-semibold mb-2">College Name</label>
-                        <input
-                            type="text"
-                            id="collegeName"
-                            className="w-full p-3 bg-gray-700 text-white rounded-md"
-                            placeholder="Thapar University"
-                            value={collegeName}
-                            onChange={(e) => setCollegeName(e.target.value)}
-                            required
-                        />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        {/* Thapar Email */}
+                        <div>
+                            <label htmlFor="thaparEmail" className="block text-lg font-semibold mb-2">Thapar Email</label>
+                            <input
+                                type="email"
+                                id="thaparEmail"
+                                className="w-full p-3 bg-gray-700 text-white rounded-md"
+                                placeholder="john1@thapar.edu"
+                                value={thaparEmail}
+                                onChange={(e) => setThaparEmail(e.target.value)}
+                                required
+                            />
+                        </div>
+
+                        {/* Email */}
+                        <div>
+                            <label htmlFor="email" className="block text-lg font-semibold mb-2">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                className="w-full p-3 bg-gray-700 text-white rounded-md"
+                                placeholder="mail1@mail.com"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                        </div>
                     </div>
 
-                    {/* Thapar Email */}
-                    <div>
-                        <label htmlFor="thaparEmail" className="block text-lg font-semibold mb-2">Thapar Email</label>
-                        <input
-                            type="email"
-                            id="thaparEmail"
-                            className="w-full p-3 bg-gray-700 text-white rounded-md"
-                            placeholder="john1@thapar.edu"
-                            value={thaparEmail}
-                            onChange={(e) => setThaparEmail(e.target.value)}
-                            required
-                        />
-                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        {/* Phone Number */}
+                        <div>
+                            <label htmlFor="phoneNumber" className="block text-lg font-semibold mb-2">Phone Number</label>
+                            <input
+                                type="text"
+                                id="phoneNumber"
+                                className="w-full p-3 bg-gray-700 text-white rounded-md"
+                                placeholder="123256780"
+                                value={phoneNumber}
+                                onChange={(e) => setPhoneNumber(e.target.value)}
+                                required
+                            />
+                        </div>
 
-                    {/* Email */}
-                    <div>
-                        <label htmlFor="email" className="block text-lg font-semibold mb-2">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            className="w-full p-3 bg-gray-700 text-white rounded-md"
-                            placeholder="mail1@mail.com"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                        />
-                    </div>
 
-                    {/* Phone Number */}
-                    <div>
-                        <label htmlFor="phoneNumber" className="block text-lg font-semibold mb-2">Phone Number</label>
-                        <input
-                            type="text"
-                            id="phoneNumber"
-                            className="w-full p-3 bg-gray-700 text-white rounded-md"
-                            placeholder="123256780"
-                            value={phoneNumber}
-                            onChange={(e) => setPhoneNumber(e.target.value)}
-                            required
-                        />
-                    </div>
-
-                    {/* Roll Number */}
-                    <div>
-                        <label htmlFor="rollNo" className="block text-lg font-semibold mb-2">Roll Number</label>
-                        <input
-                            type="text"
-                            id="rollNo"
-                            className="w-full p-3 bg-gray-700 text-white rounded-md"
-                            placeholder="102"
-                            value={rollNo}
-                            onChange={(e) => setRollNo(e.target.value)}
-                            required
-                        />
+                        {/* Roll Number */}
+                        <div>
+                            <label htmlFor="rollNo" className="block text-lg font-semibold mb-2">Roll Number</label>
+                            <input
+                                type="text"
+                                id="rollNo"
+                                className="w-full p-3 bg-gray-700 text-white rounded-md"
+                                placeholder="102"
+                                value={rollNo}
+                                onChange={(e) => setRollNo(e.target.value)}
+                                required
+                            />
+                        </div>
                     </div>
 
                     {/* Year Dropdown */}

@@ -133,10 +133,9 @@ function TeamPage() {
                         />
                         <button
                             onClick={handleCreateTeam}
-                            disabled={user.usernmae && user.rollNo && user.phoneNumber ? false : true}
                             className="mt-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg w-full disabled:bg-gray-400 disabled:cursor-not-allowed"
                         >
-                            {user.usernmae && user.rollNo && user.phoneNumber ? "Create Team" : "User must have username, Roll no, phone number"}
+                            Create Team 
                         </button>
                     </div>
 
@@ -152,10 +151,9 @@ function TeamPage() {
                         />
                         <button
                             onClick={handleJoinTeam}
-                            disabled={user.usernmae && user.rollNo && user.phoneNumber ? false : true}
                             className="mt-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg w-full disabled:bg-gray-400 disabled:cursor-not-allowed"
                         >
-                            {user.usernmae && user.rollNo && user.phoneNumber ? "Send Join Request" : "User must have username, Roll no, phone number"}
+                            Send Join Request
                         </button>
 
                         {userJoinRequests &&

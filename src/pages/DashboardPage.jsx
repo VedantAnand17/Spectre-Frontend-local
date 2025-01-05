@@ -67,6 +67,10 @@ function DashboardPage() {
 
   useEffect(() => { }, [joinRequest])
 
+  if (!user.verified) {
+    return
+  }
+
   if (!team) {
     return <div className="">Loading Team Details</div>
   }
@@ -84,29 +88,6 @@ function DashboardPage() {
         <p className="text-xl mt-2">Welcome back to your dashboard, {user?.username}</p>
       </div>
 
-      {/* User Info Section */}
-      {/* <div className="max-w-4xl mx-auto bg-gray-800 p-6 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-bold text-red-500 mb-4">Your Profile</h2>
-        <div className="space-y-4">
-          <div className="flex justify-between">
-            <p className="font-semibold">Username:</p>
-            <p>{user?.username}</p>
-          </div>
-          <div className="flex justify-between">
-            <p className="font-semibold">Email:</p>
-            <p>{user?.email}</p>
-          </div>
-          <div className="flex justify-between">
-            <p className="font-semibold">Roll Number:</p>
-            <p>{user?.rollNo}</p>
-          </div>
-          <div className="flex justify-between">
-            <p className="font-semibold">Phone Number:</p>
-            <p>{user?.phoneNumber}</p>
-          </div>
-        </div>
-      </div> */}
-
       {/* CTF Registration Info Section */}
       <div className="max-w-4xl mx-auto bg-gray-800 mt-8 p-6 rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold text-red-500 mb-4">CTF Team Details</h2>
@@ -121,7 +102,7 @@ function DashboardPage() {
           </div>
           <div className="flex justify-between">
             <p className="font-semibold">Team Members:</p>
-            <div className="grid w-full  grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 ">
+            <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2">
               {team?.members.map((members, index) => (
                 <div key={index} className="border-red-500 border">
                   <p>Username :{members.username}</p>
@@ -141,7 +122,7 @@ function DashboardPage() {
         </div>
       </div>
 
-      {user.rollNo == team.leaderRollNo && joinRequest && <div className="">
+      {user.rollNo == team.leaderRollNo && joinRequest.length > 0 && <div className="">
         <div className="">Team Join Requests</div>
         {joinRequest.map((joinRequest, index) => <div className="" key={index}>
           <p>{joinRequest.user.username}</p>

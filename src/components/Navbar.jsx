@@ -25,10 +25,7 @@ function Navbar() {
           <Link onClick={() => setIsOpen(false)} to="/" className="hover:text-red-500">
             Home
           </Link>
-          {!!user.teamName && <Link onClick={() => setIsOpen(false)} to="/dashboard" className="hover:text-red-500">
-            Dashboard
-          </Link>}
-          {!!!user.teamName && <Link onClick={() => setIsOpen(false)} to="/team" className="hover:text-red-500">
+          {!!!user.teamName && user.verified && <Link onClick={() => setIsOpen(false)} to="/team" className="hover:text-red-500">
             Team
           </Link>}
           <Link onClick={() => setIsOpen(false)} to="/profile" className="hover:text-red-500">
@@ -85,13 +82,7 @@ function Navbar() {
           >
             Home
           </Link>
-          {!!user.teamName && <Link onClick={() => setIsOpen(false)}
-            to="/dashboard"
-            className="block px-4 py-2 hover:bg-gray-700 hover:text-red-500"
-          >
-            Dashboard
-          </Link>}
-          {!!!user.teamName && <Link onClick={() => setIsOpen(false)}
+          {!!!user.teamName && user.verified && <Link onClick={() => setIsOpen(false)}
             to="/team"
             className="block px-4 py-2 hover:bg-gray-700 hover:text-red-500"
           >
