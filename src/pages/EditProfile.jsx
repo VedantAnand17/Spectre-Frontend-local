@@ -42,8 +42,8 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
     if (!isEditModalOpen) return null;
 
     return (
-        <div className="min-h-screen mx-auto rounded-xl absolute top-0 w-full text-white py-6 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto relative bg-gray-800 p-8 rounded-lg shadow-lg">
+        <div className="min-h-screen mx-auto rounded-xl absolute top-0 w-full text-white py-6 content-center px-4 sm:px-6 lg:px-8 z-50">
+            <div className="max-w-4xl mx-auto relative bg-[#0d1d41] rounded-3xl p-8  shadow-lg">
                 <div className="flex items-center justify-between">
                     <button
                         onClick={closeEditModal}
@@ -51,7 +51,7 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
                     >
                         X
                     </button>
-                    <h1 className="text-3xl font-extrabold text-center justify-center text-red-500 mb-6">Update Your Profile</h1>
+                    <h1 className="text-3xl font-extrabold text-center justify-center  mb-6">Update Your Profile</h1>
                 </div>
 
                 <form onSubmit={handleUpdate} className="space-y-4">
@@ -180,7 +180,7 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
 
                     <button
                         type="submit"
-                        className="w-full mt-4 py-3 bg-red-500 text-white font-semibold rounded-md hover:bg-red-600"
+                        className="w-full mt-4 py-3 bg-blue-800 text-white font-semibold hover:bg-blue-900 rounded-xl"
                     >
                         Update
                     </button>

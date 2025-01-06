@@ -109,7 +109,7 @@ export default function Profile() {
 
             <img src="https://cdn.discordapp.com/attachments/1314526467144814635/1324463344521973770/image_133.png?ex=67783e1c&is=6776ec9c&hm=3f832a8ce3609fc8d31d7379db8eb1af5bc30508dc40253d1ad302fe3cf50acd&" className='h-screen w-screen absolute' alt="" />
 
-            <img src="https://github.com/VedantAnand17/voidImages/blob/main/owaspLogo.png?raw=true" className='absolute ml-6 max-md:h-14' alt="" />
+            {/* <img src="https://github.com/VedantAnand17/voidImages/blob/main/owaspLogo.png?raw=true" className='absolute ml-6 max-md:h-14' alt="" /> */}
 
             <div className="h-screen w-screen flex justify-center items-center">
                 <div className="bg-[#030925] bg-opacity-80 h-[80vh] w-[80vw] rounded-3xl m-auto absolute">

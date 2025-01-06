@@ -13,12 +13,15 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-gray-900 text-white relative ">
+    <nav className="bg-transparent backdrop-blur-sm -mb-10 fixed z-40 w-screen text-white  ">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <Link onClick={() => setIsOpen(false)} to="/" className="text-2xl font-bold text-red-500">
-          SPECTRE
+        <img src="https://github.com/VedantAnand17/voidImages/blob/main/owaspLogo.png?raw=true" className='max-md:h-14 h-20 max-sm:h-12' alt="" />
         </Link>
+        {/* <Link onClick={() => setIsOpen(false)} to="/" className="text-2xl font-bold text-red-500">
+          SPECTRE
+        </Link> */}
 
         {/* Menu for larger screens */}
         <div className="hidden md:flex space-x-6 items-center">
@@ -75,7 +78,7 @@ function Navbar() {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-gray-800">
+        <div className="md:hidden bg-[#0d1d41]">
           <Link onClick={() => setIsOpen(false)}
             to="/"
             className="block px-4 py-2 hover:bg-gray-700 hover:text-red-500"
