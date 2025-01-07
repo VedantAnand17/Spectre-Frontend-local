@@ -25,7 +25,7 @@ export default function Profile() {
         if (user?.teamName) {
             getUserTeam(user?.teamName);
         }
-    })
+    }, [])
 
     const closeEditModal = () => {
         setIsEditModalOpen(false);
@@ -133,7 +133,7 @@ export default function Profile() {
                     </div>
                     <div className="flex justify-center w-full">
                         {team && user.rollNo == team.leaderRollNo && <Button onClick={() => handleDeleteTeam()} className='absolute bottom-4 content-center bg-blue-700 hover:bg-blue-800 rounded-xl'>Delete team</Button>}
-                        <Button onClick={() => setIsEditModalOpen(true)} className='absolute bottom-4 left-2 bg-blue-700 hover:bg-blue-800 rounded-xl'>Edit Profile</Button>
+                        <Button onClick={() => { setIsEditModalOpen(true); getUserById(user.id) }} className='absolute bottom-4 left-2 bg-blue-700 hover:bg-blue-800 rounded-xl'>Edit Profile</Button>
                         <Button
                             title='Verify Your Self To Create or Join a Team'
                             onClick={sendVerificationToken}

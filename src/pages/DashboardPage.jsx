@@ -18,7 +18,7 @@ function DashboardPage() {
     const response = await api.get(`/teams/${team.teamToken}/join-requests`);
     // console.log(response)
     setJoinRequest(response.data);
-    getJoinRequest();
+    // getJoinRequest();
   }
 
   const handleAccept = async (teamId, userId) => {
@@ -38,7 +38,7 @@ function DashboardPage() {
       const response = await api.post(`/teams/${teamId}/respond-request?userId=${userId}&accept=false`)
       toast.success(response.data.message);
       // console.log(response)
-
+      getJoinRequest();
     } catch (error) {
       // console.log("Error occurred", error);
       toast.error(error.message || "An error occurred. Please try again.");
@@ -122,21 +122,22 @@ function DashboardPage() {
         </div>
       </div>
 
-      {user.rollNo == team.leaderRollNo && joinRequest.length > 0 && <div className="">
-        <div className="">Team Join Requests</div>
-        {joinRequest.map((joinRequest, index) => <div className="" key={index}>
-          <p>{joinRequest.user.username}</p>
-          <p>{joinRequest.user.rollNo}</p>
-          <p>{joinRequest.user.email}</p>
-          <p>{joinRequest.user.phoneNumber}</p>
-          <p>Status: {joinRequest.status}</p>
-          {joinRequest.status == "Pending" && (<>
-            <Button onClick={() => handleReject(joinRequest.team.teamId, joinRequest.user.userId)}>Reject</Button>
-            <Button onClick={() => handleAccept(joinRequest.team.teamId, joinRequest.user.userId)}>Accept</Button>
-          </>)}
-        </div>
-        )}
-      </div>}
+      {joinRequest && joinRequest.length > 0 && user.rollNo == team?.leaderRollNo &&
+        <div className="">
+          <div className="">Team Join Requests</div>
+          {joinRequest.map((joinRequest, index) => <div className="" key={index}>
+            <p>{joinRequest.user.username}</p>
+            <p>{joinRequest.user.rollNo}</p>
+            <p>{joinRequest.user.email}</p>
+            <p>{joinRequest.user.phoneNumber}</p>
+            <p>Status: {joinRequest.status}</p>
+            {joinRequest.status == "Pending" && (<>
+              <Button onClick={() => handleReject(joinRequest.team.teamId, joinRequest.user.userId)}>Reject</Button>
+              <Button onClick={() => handleAccept(joinRequest.team.teamId, joinRequest.user.userId)}>Accept</Button>
+            </>)}
+          </div>
+          )}
+        </div>}
     </div>
   );
 }
