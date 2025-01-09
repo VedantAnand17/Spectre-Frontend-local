@@ -82,7 +82,7 @@ export default function Card() {
             <img src="https://github.com/VedantAnand17/voidImages/blob/main/owaspLogo.png?raw=true" alt="" className="absolute ml-6 max-md:h-14" />
 
             <div className="h-[90vh] w-screen text-white flex flex-col items-center absolute rounded-3xl justify-center gap-5 bg-opacity-80">
-                <div className="flex flex-col items-center rounded-3xl justify-center gap-10 bg-opacity-80  max-md:opacity-80 max-md:p-5 max-sm:p-2 ">
+                <div className="flex backdrop-blur-sm py-2 px-1 flex-col items-center rounded-3xl justify-center gap-10 bg-opacity-80  max-md:opacity-80 max-md:p-5 max-sm:p-2 ">
                     <div className="flex flex-col justify-center items-center">
                         <div className="text-4xl font-bold mb-1 max-sm:text-2xl">Create new account</div>
                         <div className="flex">
