@@ -12,7 +12,7 @@ export default function Register() {
         }
     }, [isLoggedIn])
     return (
-        <div className="bg-[#1E4751] min-h-screen flex justify-center items-center">
+        <div className="bg-[#1E4751] min-h-screen w-screen flex justify-center items-center">
             <Card />
         </div>
     )
