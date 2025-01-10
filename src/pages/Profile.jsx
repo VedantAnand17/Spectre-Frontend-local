@@ -8,7 +8,7 @@ import EditProfile from './EditProfile';
 import DashboardPage from './DashboardPage';
 
 export default function Profile() {
-    const { isLoggedIn, user, setUser, team, setTeam, getUserTeam, getUserById } = useContext(AuthContext); // Accessing user context
+    const { isLoggedIn, user, setUser, team, getUserTeam, getUserById } = useContext(AuthContext); // Accessing user context
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [token, setToken] = useState("");
@@ -72,17 +72,17 @@ export default function Profile() {
             const response = await api.post(`/users/${user.id}/verify/${token}`);
             // console.log(response.data.user);
             if (response.status === 200) {
-                toast(response.message || 'Verification successful!');
+                toast.success(response.message || 'Verification successful!');
                 setUser(response.data.user)
                 setIsModalOpen(false);
                 setToken("")
             } else {
-                toast(response.message || 'Failed to verify token.');
+                toast.error(response.message || 'Failed to verify token.');
                 setToken("")
             }
         } catch (error) {
             // console.log(error)
-            toast('An error occurred while verifying the token.');
+            toast.error('An error occurred while verifying the token.');
         } finally {
             setLoading(false);
         }
@@ -120,7 +120,7 @@ export default function Profile() {
                     <div className="absolute text-6xl max-lg:text-4xl w-[80vw] text-white flex justify-center font-semibold">PROFILE</div>
                     <div className="flex flex-col items-center gap-10 rounded-3xl bg-opacity-80 max-lg:text-lg h-[80vh] justify-center text-white text-4xl" >
                         <div className="flex flex-col gap-4 max-sm:w-52 max-sm:pl-2">
-                            {!user.verified && <div className='text-sm text-red-500'>Please verify your account to create or join a team.</div>}
+                            {!user.verified && <div className='text-sm text-red-500'>Please update your details and verify your account to create or join a team.</div>}
                             {user.username && <div className="">Name: {user.username}</div>}
                             {user.email && <div className="">Email: {user.email}</div>}
                             {user.collegeName && <div className="">College: {user.collegeName}</div>}
@@ -135,7 +135,6 @@ export default function Profile() {
                         {team && user.rollNo == team.leaderRollNo && <Button onClick={() => handleDeleteTeam()} className='absolute bottom-4 content-center bg-blue-700 hover:bg-blue-800 rounded-xl'>Delete team</Button>}
                         <Button onClick={() => { setIsEditModalOpen(true); getUserById(user.id) }} className='absolute bottom-4 left-2 bg-blue-700 hover:bg-blue-800 rounded-xl'>Edit Profile</Button>
                         <Button
-                            title='Verify Your Self To Create or Join a Team'
                             onClick={sendVerificationToken}
                             className="absolute bottom-4 right-2 bg-blue-700 hover:bg-blue-800 rounded-xl"
                             disabled={user.verified || loading}

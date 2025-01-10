@@ -67,7 +67,7 @@ function DashboardPage() {
 
   useEffect(() => { }, [joinRequest])
 
-  if (!user.verified) {
+  if (!user.verified || user.teamName === null) {
     return
   }
 
@@ -102,19 +102,31 @@ function DashboardPage() {
           </div>
           <div className="flex justify-between">
             <p className="font-semibold">Team Members:</p>
-            <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2">
-              {team?.members.map((members, index) => (
-                <div key={index} className="border-red-500 border">
-                  <p>Username :{members.username}</p>
-                  <p>College Name :{members.collegeName}</p>
-                  <p>Email :{members.email}</p>
-                  <p>thaparEmail :{members.thaparEmail}</p>
-                  <p>position :{members.position}</p>
-                  <p>Phone Number : {members.phoneNumber}</p>
-                  <p>RollNo : {members.rollNo}</p>
-                  <p>verified : {members.verified ? "YES" : "NO"}</p>
-                  <p>year : {members.year}</p>
-                  {user.rollNo == team.leaderRollNo && <Button onClick={() => handleDeleteMember(members.id)}>Delete Member</Button>}
+            <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {team?.members.map((member, index) => (
+                <div
+                  key={index}
+                  className="border border-gray-300 shadow-md rounded-lg p-4 bg-white hover:shadow-lg transition-shadow"
+                >
+                  <p className="text-lg font-semibold text-gray-800">Username: {member.username}</p>
+                  <p className="text-sm text-gray-600">College Name: {member.collegeName}</p>
+                  <p className="text-sm text-gray-600">Email: {member.email}</p>
+                  <p className="text-sm text-gray-600">Thapar Email: {member.thaparEmail}</p>
+                  <p className="text-sm text-gray-600">Position: {member.position}</p>
+                  <p className="text-sm text-gray-600">Phone Number: {member.phoneNumber}</p>
+                  <p className="text-sm text-gray-600">Roll No: {member.rollNo}</p>
+                  <p className="text-sm text-gray-600">
+                    Verified: <span className={member.verified ? "text-green-600" : "text-red-600"}>{member.verified ? "YES" : "NO"}</span>
+                  </p>
+                  <p className="text-sm text-gray-600">Year: {member.year}</p>
+                  {user.rollNo === team.leaderRollNo && (
+                    <button
+                      onClick={() => handleDeleteMember(member.id)}
+                      className="mt-4 w-full py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+                    >
+                      Delete Member
+                    </button>
+                  )}
                 </div>
               ))}
             </div>
@@ -122,22 +134,44 @@ function DashboardPage() {
         </div>
       </div>
 
-      {joinRequest && joinRequest.length > 0 && user.rollNo == team?.leaderRollNo &&
-        <div className="">
-          <div className="">Team Join Requests</div>
-          {joinRequest.map((joinRequest, index) => <div className="" key={index}>
-            <p>{joinRequest.user.username}</p>
-            <p>{joinRequest.user.rollNo}</p>
-            <p>{joinRequest.user.email}</p>
-            <p>{joinRequest.user.phoneNumber}</p>
-            <p>Status: {joinRequest.status}</p>
-            {joinRequest.status == "Pending" && (<>
-              <Button onClick={() => handleReject(joinRequest.team.teamId, joinRequest.user.userId)}>Reject</Button>
-              <Button onClick={() => handleAccept(joinRequest.team.teamId, joinRequest.user.userId)}>Accept</Button>
-            </>)}
+      {joinRequest && joinRequest.length > 0 && user.rollNo === team?.leaderRollNo && (
+        <div className="p-4 shadow-md bg-gray-900">
+          <div className="mb-4 text-lg font-semibold text-white">Team Join Requests</div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {joinRequest.map((request, index) => (
+              <div
+                className="p-4 border border-gray-200 rounded-lg shadow-sm bg-gray-50 hover:shadow-md transition-shadow"
+                key={index}
+              >
+                <p className="text-sm text-gray-800"><strong>Username:</strong> {request.user.username}</p>
+                <p className="text-sm text-gray-800"><strong>Roll No:</strong> {request.user.rollNo}</p>
+                <p className="text-sm text-gray-800"><strong>Email:</strong> {request.user.email}</p>
+                <p className="text-sm text-gray-800"><strong>Phone Number:</strong> {request.user.phoneNumber}</p>
+                <p className="text-sm text-gray-800">
+                  <strong>Status: </strong>
+                  <span className={request.status === "Pending" ? "text-yellow-600" : "text-green-600"}>{request.status}</span>
+                </p>
+                {request.status === "Pending" && (
+                  <div className="mt-4 flex space-x-3">
+                    <button
+                      onClick={() => handleReject(request.team.teamId, request.user.userId)}
+                      className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+                    >
+                      Reject
+                    </button>
+                    <button
+                      onClick={() => handleAccept(request.team.teamId, request.user.userId)}
+                      className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
+                    >
+                      Accept
+                    </button>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-          )}
-        </div>}
+        </div>
+      )}
     </div>
   );
 }
