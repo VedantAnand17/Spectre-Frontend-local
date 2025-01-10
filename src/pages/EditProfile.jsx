@@ -31,9 +31,9 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
         // Handle response
         if (result) {
             toast.success("Profile Updated successful!");
+            closeEditModal();
             getUserById(user.id);
             navigate("/profile");
-            closeEditModal();
         } else {
             toast.error(result.message);
         }
@@ -129,8 +129,6 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-
-
                         {/* Roll Number */}
                         <div>
                             <label htmlFor="rollNo" className="block text-lg font-semibold mb-2">Roll Number</label>
