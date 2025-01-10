@@ -94,7 +94,7 @@ export default function Profile() {
 
     return (
         <div className='w-screen min-h-screen relative'>
-            <img src="https://res.cloudinary.com/di3ap5nsr/image/upload/v1736531554/image_133_vtufq1.png" className='h-screen w-screen absolute' alt="" />
+            <img src="https://res.cloudinary.com/di3ap5nsr/image/upload/v1736535172/image_133_vtufq1_1_kkcbuh.png" className='h-screen w-screen absolute' alt="" />
 
             {/* <img src="https://res.cloudinary.com/di3ap5nsr/image/upload/v1736530975/WhatsApp_Image_2024-12-16_at_19_vg5grl.png" className='absolute ml-6 max-md:h-14' alt="" /> */}
 

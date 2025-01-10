@@ -125,7 +125,7 @@ function TeamPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
                     {/* Create Team Section */}
                     <div className="bg-gray-800 p-6 rounded-lg shadow-md min-w-lg mx-auto">
-                        <h2 className="text-2xl font-bold text-red-500 mb-4 text-center">Create a Team</h2>
+                        <h2 className="text-2xl font-bold text-blue-600 mb-4 text-center">Create a Team</h2>
                         <input
                             type="text"
                             placeholder="Enter team name"
@@ -135,7 +135,7 @@ function TeamPage() {
                         />
                         <button
                             onClick={handleCreateTeam}
-                            className="mt-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg w-full disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+                            className="mt-4 bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-lg w-full disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
                         >
                             Create Team
                         </button>
@@ -144,7 +144,7 @@ function TeamPage() {
 
                     {/* Join Team Section */}
                     <div className="bg-gray-800 p-6 rounded-lg shadow-md min-w-lg mx-auto">
-                        <h2 className="text-2xl font-bold text-red-500 mb-4 text-center">Join a Team</h2>
+                        <h2 className="text-2xl font-bold text-blue-600 mb-4 text-center">Join a Team</h2>
                         <input
                             type="text"
                             placeholder="Enter team token"
@@ -154,14 +154,14 @@ function TeamPage() {
                         />
                         <button
                             onClick={handleJoinTeam}
-                            className="mt-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg w-full disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+                            className="mt-4 bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-lg w-full disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
                         >
                             Send Join Request
                         </button>
 
                         {userJoinRequests?.length > 0 && (
                             <div className="mt-6 bg-gray-700 p-4 rounded-lg shadow-md">
-                                <h3 className="text-lg font-semibold text-red-400 mb-3">Your Join Requests</h3>
+                                <h3 className="text-lg font-bold text-white mb-3">Your Join Requests</h3>
                                 <div className="grid gap-4">
                                     {userJoinRequests.map((request, index) => (
                                         <div

@@ -75,7 +75,7 @@ export default function Card() {
                     </div>
                 </div> */}
             <img
-                src="https://res.cloudinary.com/di3ap5nsr/image/upload/v1736532044/Group_84_csxug8_1_xoi0b6.png"
+                src="https://res.cloudinary.com/di3ap5nsr/image/upload/v1736535914/Group_84_1_2_dofjkv.png"
                 alt=""
                 className="object-cover w-screen h-screen rounded-l-3xl absolute z-0"
             />

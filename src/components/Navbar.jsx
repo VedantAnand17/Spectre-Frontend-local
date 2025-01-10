@@ -25,13 +25,13 @@ function Navbar() {
 
         {/* Menu for larger screens */}
         <div className="hidden md:flex space-x-6 items-center">
-          <Link onClick={() => setIsOpen(false)} to="/" className="hover:text-red-500">
+          <Link onClick={() => setIsOpen(false)} to="/" className="hover:text-blue-500">
             Home
           </Link>
-          {!!!user.teamName && user.verified && <Link onClick={() => setIsOpen(false)} to="/team" className="hover:text-red-500">
+          {!!!user.teamName && user.verified && <Link onClick={() => setIsOpen(false)} to="/team" className="hover:text-blue-500">
             Team
           </Link>}
-          <Link onClick={() => setIsOpen(false)} to="/profile" className="hover:text-red-500">
+          <Link onClick={() => setIsOpen(false)} to="/profile" className="hover:text-blue-500">
             Profile
           </Link>
           {/* Logout button */}
@@ -81,13 +81,13 @@ function Navbar() {
         <div className="md:hidden bg-[#0d1d41]">
           <Link onClick={() => setIsOpen(false)}
             to="/"
-            className="block px-4 py-2 hover:bg-gray-700 hover:text-red-500"
+            className="block px-4 py-2 hover:bg-gray-700 hover:text-blue-500"
           >
             Home
           </Link>
           {!!!user.teamName && user.verified && <Link onClick={() => setIsOpen(false)}
             to="/team"
-            className="block px-4 py-2 hover:bg-gray-700 hover:text-red-500"
+            className="block px-4 py-2 hover:bg-gray-700 hover:text-blue-500"
           >
             Team
           </Link>}
