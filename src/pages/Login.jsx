@@ -83,7 +83,7 @@ export default function Login() {
                 <img
                     src="https://res.cloudinary.com/di3ap5nsr/image/upload/v1736535914/Group_84_1_2_dofjkv.png"
                     alt=""
-                    className="object-cover w-screen h-screen rounded-l-3xl absolute z-0"
+                    className="object-cover w-screen h-screen absolute z-0"
                 />
                 <img src="https://res.cloudinary.com/di3ap5nsr/image/upload/v1736530975/WhatsApp_Image_2024-12-16_at_19_vg5grl.png" alt="" className="absolute ml-6 max-md:h-14" />
 
