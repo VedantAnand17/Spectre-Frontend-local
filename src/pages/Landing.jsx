@@ -7,10 +7,11 @@ export default function Landing() {
     const { isLoggedIn } = useContext(AuthContext);
 
     return (
+            //landing
         <div className='w-screen'>
-            <img src="https://github.com/VedantAnand17/voidImages/blob/main/specLanding.png?raw=true" className='h-screen w-screen absolute object-cover' alt="" />
+            <img src="https://res.cloudinary.com/di3ap5nsr/image/upload/v1736531881/Desktop_-_40_egxfyq_1_czajuz" className='h-screen w-screen absolute object-cover' alt="" />
             <div className="h-screen w-screen absolute flex max-lg:justify-center">
-                <img src="https://github.com/VedantAnand17/voidImages/blob/main/owaspLogo.png?raw=true" className='absolute ml-6 flex justify-center  ' alt="" />
+                <img src="https://res.cloudinary.com/di3ap5nsr/image/upload/v1736530975/WhatsApp_Image_2024-12-16_at_19_vg5grl.png" className='absolute ml-6 flex justify-center  ' alt="" />
             </div>
             <div className="h-screen w-screen absolute text-white">
                 <div className="flex lg:gap-60 lg:justify-around items-center h-screen text-xl max-lg:flex-col max-lg:justify-end ">

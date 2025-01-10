@@ -75,11 +75,11 @@ export default function Card() {
                     </div>
                 </div> */}
             <img
-                src="https://cdn.discordapp.com/attachments/1325497393680093194/1326616523913297970/Group_73.png?ex=6780136a&is=677ec1ea&hm=c64667d6817813689cf182e5bc6798b489ab220c53bb0c17dea5935eb82b5b7d&"
+                src="https://res.cloudinary.com/di3ap5nsr/image/upload/v1736532044/Group_84_csxug8_1_xoi0b6.png"
                 alt=""
                 className="object-cover w-screen h-screen rounded-l-3xl absolute z-0"
             />
-            <img src="https://github.com/VedantAnand17/voidImages/blob/main/owaspLogo.png?raw=true" alt="" className="absolute ml-6 max-md:h-14" />
+            <img src="https://res.cloudinary.com/di3ap5nsr/image/upload/v1736530975/WhatsApp_Image_2024-12-16_at_19_vg5grl.png" alt="" className="absolute ml-6 max-md:h-14" />
 
             <div className="h-[90vh] w-screen text-white flex flex-col items-center absolute rounded-3xl justify-center gap-5 bg-opacity-80">
                 <div className="flex backdrop-blur-sm py-2 px-1 flex-col items-center rounded-3xl justify-center gap-10 bg-opacity-80  max-md:opacity-80 max-md:p-5 max-sm:p-2 ">

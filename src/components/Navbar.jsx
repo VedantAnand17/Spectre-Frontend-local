@@ -17,7 +17,7 @@ function Navbar() {
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <Link onClick={() => setIsOpen(false)} to="/" className="text-2xl font-bold text-red-500">
-        <img src="https://github.com/VedantAnand17/voidImages/blob/main/owaspLogo.png?raw=true" className='max-md:h-14 h-20 max-sm:h-12' alt="" />
+        <img src="https://res.cloudinary.com/di3ap5nsr/image/upload/v1736530975/WhatsApp_Image_2024-12-16_at_19_vg5grl.png" className='max-md:h-14 h-20 max-sm:h-12' alt="" />
         </Link>
         {/* <Link onClick={() => setIsOpen(false)} to="/" className="text-2xl font-bold text-red-500">
           SPECTRE
