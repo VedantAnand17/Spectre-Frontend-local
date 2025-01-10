@@ -12,9 +12,9 @@ export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-  // { user && getUserById(user?.id); }
-  // { user?.teamName && getUserTeam(user?.teamName); }
-  getAllUser();
+    // { user && getUserById(user?.id); }
+    // { user?.teamName && getUserTeam(user?.teamName); }
+    getAllUser();
   }, [])
 
   const getAllUser = async () => {
@@ -84,6 +84,9 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setIsLoggedIn(false);
     setUser(null);
+    setAllUser(null);
+    setTeam(null);
+    setJoinRequest(null);
   };
 
   return (

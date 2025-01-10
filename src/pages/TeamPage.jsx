@@ -35,7 +35,8 @@ function TeamPage() {
         try {
             const response = await api.delete(`/teams/${teamId}/joinRequests/${user.id}`);
             // console.log(response)
-            toast.success(response.data.message)
+            setUserJoinRequests(null);
+            toast.success(response.data.message);
         } catch (error) {
             // console.error("Error creating team:", error);
             toast.error("An error occurred. Please try again.");
@@ -104,6 +105,7 @@ function TeamPage() {
             if (response.status == 200) {
                 toast.success(response.data.message);
                 getJoinRequests();
+                setTeamToken("")
             } else {
                 toast.error(response.response.data.message);
             }
@@ -122,26 +124,27 @@ function TeamPage() {
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
                     {/* Create Team Section */}
-                    <div className="bg-gray-800 p-6 rounded-lg shadow-md">
-                        <h2 className="text-2xl font-bold text-red-500 mb-4">Create a Team</h2>
+                    <div className="bg-gray-800 p-6 rounded-lg shadow-md min-w-lg mx-auto">
+                        <h2 className="text-2xl font-bold text-red-500 mb-4 text-center">Create a Team</h2>
                         <input
                             type="text"
                             placeholder="Enter team name"
                             value={teamName}
                             onChange={(e) => setTeamName(e.target.value)}
-                            className="w-full bg-gray-700 text-white p-3 rounded-lg outline-none focus:ring-2 focus:ring-red-500"
+                            className="w-full bg-gray-700 text-white p-3 rounded-lg outline-none focus:ring-2 focus:ring-red-500 transition-all"
                         />
                         <button
                             onClick={handleCreateTeam}
-                            className="mt-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg w-full disabled:bg-gray-400 disabled:cursor-not-allowed"
+                            className="mt-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg w-full disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
                         >
-                            Create Team 
+                            Create Team
                         </button>
                     </div>
 
+
                     {/* Join Team Section */}
-                    <div className="bg-gray-800 p-6 rounded-lg shadow-md">
-                        <h2 className="text-2xl font-bold text-red-500 mb-4">Join a Team</h2>
+                    <div className="bg-gray-800 p-6 rounded-lg shadow-md min-w-lg mx-auto">
+                        <h2 className="text-2xl font-bold text-red-500 mb-4 text-center">Join a Team</h2>
                         <input
                             type="text"
                             placeholder="Enter team token"
@@ -151,27 +154,39 @@ function TeamPage() {
                         />
                         <button
                             onClick={handleJoinTeam}
-                            className="mt-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg w-full disabled:bg-gray-400 disabled:cursor-not-allowed"
+                            className="mt-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg w-full disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
                         >
                             Send Join Request
                         </button>
 
-                        {userJoinRequests &&
-                            <div className="">
-                                Join Requests
-                                {userJoinRequests && userJoinRequests.map((request, index) =>
-                                    <div key={index}>
-                                        <p>requestStatus: {request.requestStatus}</p>
-                                        <p>teamName: {request.team.teamName}</p>
-                                        <p>leaderName: {request.team.leaderName}</p>
-                                        <p>leaderPhoneNo: {request.team.leaderPhoneNo}</p>
-                                        <p>leaderRollNo: {request.team.leaderRollNo}</p>
-                                        <p>team size : {request.team.members.length} of 5</p>
-                                        <Button onClick={() => handleDeleteRequest(request.team.id)}>Delete Request</Button>
-                                    </div>
-                                )}
+                        {userJoinRequests?.length > 0 && (
+                            <div className="mt-6 bg-gray-700 p-4 rounded-lg shadow-md">
+                                <h3 className="text-lg font-semibold text-red-400 mb-3">Your Join Requests</h3>
+                                <div className="grid gap-4">
+                                    {userJoinRequests.map((request, index) => (
+                                        <div
+                                            key={index}
+                                            className="p-4 border border-gray-600 rounded-lg bg-gray-800 hover:shadow-lg transition-shadow"
+                                        >
+                                            <p className="text-sm text-gray-300"><strong>Status:</strong> {request.requestStatus}</p>
+                                            <p className="text-sm text-gray-300"><strong>Team Name:</strong> {request.team.teamName}</p>
+                                            <p className="text-sm text-gray-300"><strong>Leader Name:</strong> {request.team.leaderName}</p>
+                                            <p className="text-sm text-gray-300"><strong>Leader Phone:</strong> {request.team.leaderPhoneNo}</p>
+                                            <p className="text-sm text-gray-300"><strong>Leader Roll No:</strong> {request.team.leaderRollNo}</p>
+                                            <p className="text-sm text-gray-300">
+                                                <strong>Team Size:</strong> {request.team.members.length} of 5
+                                            </p>
+                                            <button
+                                                onClick={() => handleDeleteRequest(request.team.id)}
+                                                className="mt-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg w-full transition-colors"
+                                            >
+                                                Delete Request
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
-                        }
+                        )}
                     </div>
                 </div>
             </div>
