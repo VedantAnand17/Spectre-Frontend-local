@@ -8,11 +8,10 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
     const { isLoggedIn, user, getUserById } = useContext(AuthContext);
     const [username, setUsername] = useState(user?.username);
     const [collegeName, setCollegeName] = useState(user?.collegeName || "");
-    const [thaparEmail, setThaparEmail] = useState(user?.thaparEmail);
     const [email, setEmail] = useState(user?.email);
     const [phoneNumber, setPhoneNumber] = useState(user?.phoneNumber);
     const [rollNo, setRollNo] = useState(user?.rollNo);
-    const [year, setYear] = useState(user?.year);
+    const [year, setYear] = useState(user?.year || null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -23,7 +22,7 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
 
     const handleUpdate = async (e) => {
         e.preventDefault();
-        const result = await api.patch(`/users/${user.id}`, { username, collegeName, thaparEmail, email, phoneNumber, rollNo, year });
+        const result = await api.patch(`/users/${user.id}`, { username, collegeName, email, phoneNumber, rollNo, year });
 
         if (result) {
             toast.success("Profile Updated successful!");
@@ -38,11 +37,11 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
     if (!isEditModalOpen) return null;
 
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 overflow-y-auto z-50">
-            <div className="bg-gray-800 rounded-3xl p-6 w-full max-w-2xl relative">
+        <div className="fixed inset-0 bg-black bg-opacity-50 pt-20 my-auto flex items-center justify-center p-4 overflow-y-auto z-50">
+            <div className="bg-gray-800 rounded-3xl p-6 w-full  max-w-2xl relative">
                 <button
                     onClick={closeEditModal}
-                    className="absolute top-4 right-4 text-white bg-red-500 px-3 py-1 rounded-lg hover:bg-red-600"
+                    className="absolute top-4 right-2 text-white bg-red-500 border border-red-600 px-3 py-1 rounded-xl hover:bg-red-600"
                 >
                     X
                 </button>
@@ -57,11 +56,12 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
                             <input
                                 type="text"
                                 id="username"
-                                className="w-full p-2 md:p-3 bg-gray-700 text-white rounded-lg"
+                                className="w-full p-2 md:p-3 bg-gray-700 text-white rounded-lg disabled:bg-gray-400"
                                 placeholder="Enter Your name"
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
                                 required
+                                disabled={user.teamName}
                             />
                         </div>
 
@@ -85,10 +85,11 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
                             <input
                                 type="email"
                                 id="email"
-                                className="w-full p-2 md:p-3 bg-gray-700 text-white rounded-lg"
+                                className="w-full p-2 md:p-3 bg-gray-700 text-white rounded-lg disabled:bg-gray-400"
                                 placeholder="mail1@mail.com"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
+                                disabled={user.verified}
                                 required
                             />
                         </div>
@@ -99,11 +100,12 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
                             <input
                                 type="text"
                                 id="phoneNumber"
-                                className="w-full p-2 md:p-3 bg-gray-700 text-white rounded-lg"
+                                className="w-full p-2 md:p-3 bg-gray-700 text-white rounded-lg disabled:bg-gray-400"
                                 placeholder="123256780"
                                 value={phoneNumber}
                                 onChange={(e) => setPhoneNumber(e.target.value)}
                                 required
+                                disabled={user.teamName}
                             />
                         </div>
 
@@ -113,11 +115,12 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
                             <input
                                 type="text"
                                 id="rollNo"
-                                className="w-full p-2 md:p-3 bg-gray-700 text-white rounded-lg"
+                                className="w-full p-2 md:p-3 bg-gray-700 text-white rounded-lg disabled:bg-gray-400"
                                 placeholder="102"
                                 value={rollNo}
                                 onChange={(e) => setRollNo(e.target.value)}
                                 required
+                                disabled={user.teamName}
                             />
                         </div>
 
@@ -130,12 +133,12 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
                                 value={year}
                                 onChange={(e) => setYear(e.target.value)}
                                 required
-                            >
-                                <option value="" disabled>Select Year</option>
-                                <option value="1">1st Year</option>
-                                <option value="2">2nd Year</option>
-                                <option value="3">3rd Year</option>
-                                <option value="4">4th Year</option>
+                                defaultValue={"1st"}
+                             >
+                                <option value="1st">1st Year</option>
+                                <option value="2nd">2nd Year</option>
+                                <option value="3rd">3rd Year</option>
+                                <option value="4th">4th Year</option>
                             </select>
                         </div>
                     </div>

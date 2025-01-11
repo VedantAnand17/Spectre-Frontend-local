@@ -17,7 +17,7 @@ function Navbar() {
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <Link onClick={() => setIsOpen(false)} to="/" className="text-2xl font-bold text-red-500">
-        <img src="https://res.cloudinary.com/di3ap5nsr/image/upload/v1736530975/WhatsApp_Image_2024-12-16_at_19_vg5grl.png" className='max-md:h-14 h-20 max-sm:h-12' alt="" />
+          <img src="https://res.cloudinary.com/di3ap5nsr/image/upload/v1736530975/WhatsApp_Image_2024-12-16_at_19_vg5grl.png" className='max-md:h-14 h-20 max-sm:h-12' alt="" />
         </Link>
         {/* <Link onClick={() => setIsOpen(false)} to="/" className="text-2xl font-bold text-red-500">
           SPECTRE
@@ -34,6 +34,14 @@ function Navbar() {
           <Link onClick={() => setIsOpen(false)} to="/profile" className="hover:text-blue-500">
             Profile
           </Link>
+          {user.role == "teamMember" && <>
+            <Link onClick={() => setIsOpen(false)} to="/allStudents" className="hover:text-blue-500">
+              Students
+            </Link>
+            <Link onClick={() => setIsOpen(false)} to="/allTeams" className="hover:text-blue-500">
+              Teams
+            </Link>
+          </>}
           {/* Logout button */}
           {user && (
             <button
@@ -97,6 +105,20 @@ function Navbar() {
           >
             Proflie
           </Link>
+          {user.role == "teamMember" && <>
+            <Link onClick={() => setIsOpen(false)}
+              to="/allStudents"
+              className="block px-4 py-2 hover:bg-gray-700 hover:text-red-500"
+            >
+              Students
+            </Link>
+            <Link onClick={() => setIsOpen(false)}
+              to="/allTeams"
+              className="block px-4 py-2 hover:bg-gray-700 hover:text-red-500"
+            >
+              Teams
+            </Link>
+          </>}
           {/* Logout button for mobile */}
           {user && (
             <button

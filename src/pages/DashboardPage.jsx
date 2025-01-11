@@ -71,7 +71,7 @@ function DashboardPage({ closeDashboard, isDashboardOpen }) {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center overflow-y-auto">
-      <div className="bg-gray-900 p-8 rounded-xl w-11/12 max-w-6xl max-h-[90vh] overflow-y-auto relative">
+      <div className="bg-gray-900 p-8 rounded-xl w-11/12 max-w-6xl mt-10 max-h-[80vh] overflow-y-auto relative">
         <button
           onClick={closeDashboard}
           className="absolute max-sm:top-10 top-4 right-4 text-white bg-red-500 px-3 py-1 rounded hover:bg-red-600"
@@ -95,6 +95,10 @@ function DashboardPage({ closeDashboard, isDashboardOpen }) {
               <p className="font-semibold">Team Leader:</p>
               <p>{team?.leaderName}</p>
             </div>
+            <div className="flex justify-between">
+              <p className="font-semibold">Team Tokrn:</p>
+              <p>{team?.teamToken}</p>
+            </div>
             <div className="mt-6">
               <p className="font-semibold mb-4">Team Members:</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -103,15 +107,15 @@ function DashboardPage({ closeDashboard, isDashboardOpen }) {
                     key={index}
                     className="border border-gray-700 rounded-lg p-4 bg-gray-700"
                   >
-                    <p className="text-lg font-semibold">Username: {member.username}</p>
-                    <p className="text-sm">College: {member.collegeName}</p>
-                    <p className="text-sm">Email: {member.email}</p>
-                    <p className="text-sm">Phone: {member.phoneNumber}</p>
-                    <p className="text-sm">Roll No: {member.rollNo}</p>
+                    {member.username && <p className="text-lg font-semibold">Username: {member.username}</p>}
+                    {member.collegeName && <p className="text-sm">College: {member.collegeName}</p>}
+                    {member.email && <p className="text-sm">Email: {member.email}</p>}
+                    {member.phoneNumber && <p className="text-sm">Phone: {member.phoneNumber}</p>}
+                    {member.rollNo && <p className="text-sm">Roll No: {member.rollNo}</p>}
                     <p className="text-sm">
                       Verified: <span className={member.verified ? "text-green-500" : "text-red-500"}>{member.verified ? "YES" : "NO"}</span>
                     </p>
-                    <p className="text-sm">Year: {member.year}</p>
+                    {member.year && <p className="text-sm">Year: {member.year}</p>}
                     {user.rollNo === team.leaderRollNo && member.rollNo !== team.leaderRollNo && (
                       <button
                         onClick={() => handleDeleteMember(member.id)}
@@ -136,15 +140,15 @@ function DashboardPage({ closeDashboard, isDashboardOpen }) {
                   key={index}
                   className="border border-gray-700 rounded-lg p-4 bg-gray-700 text-white"
                 >
-                  <p><strong>Username:</strong> {request.user.username}</p>
-                  <p><strong>Roll No:</strong> {request.user.rollNo}</p>
-                  <p><strong>Email:</strong> {request.user.email}</p>
-                  <p><strong>Phone:</strong> {request.user.phoneNumber}</p>
+                  {request.user.username && <p><strong>Username:</strong> {request.user.username}</p>}
+                  {request.user.rollNo && <p><strong>Roll No:</strong> {request.user.rollNo}</p>}
+                  {request.user.email && <p><strong>Email:</strong> {request.user.email}</p>}
+                  {request.user.phoneNumber && <p><strong>Phone:</strong> {request.user.phoneNumber}</p>}
                   <p>
                     <strong>Status: </strong>
-                    <span className={request.status === "Pending" ? "text-yellow-500" : "text-green-500"}>{request.status}</span>
+                    <span className={request.status === "PENDING" ? "text-yellow-500" : "text-green-500"}>{request.status}</span>
                   </p>
-                  {request.status === "Pending" && (
+                  {request.status === "PENDING" && (
                     <div className="mt-4 flex gap-2">
                       <button
                         onClick={() => handleReject(request.team.teamId, request.user.userId)}
