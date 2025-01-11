@@ -7,6 +7,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [allUser, setAllUser] = useState(null);
+  const [allTeams, setAllTeams] = useState(null);
   const [team, setTeam] = useState(null);
   const [joinRequest, setJoinRequest] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -15,6 +16,7 @@ export const AuthProvider = ({ children }) => {
     // { user && getUserById(user?.id); }
     // { user?.teamName && getUserTeam(user?.teamName); }
     getAllUser();
+    getAllTeam();
   }, [])
 
   const getAllUser = async () => {
@@ -22,6 +24,16 @@ export const AuthProvider = ({ children }) => {
       const response = await api.get("/users/all");
       // console.log("all user", response.data);
       setAllUser(response.data);
+    } catch (error) {
+      // console.error("Error fetching users:", error);
+    }
+  };
+
+  const getAllTeam = async () => {
+    try {
+      const response = await api.get("/teams/all");
+      // console.log("all user", response.data);
+      setAllTeams(response.data);
     } catch (error) {
       // console.error("Error fetching users:", error);
     }
@@ -96,6 +108,7 @@ export const AuthProvider = ({ children }) => {
       team,
       setTeam,
       allUser,
+      allTeams,
       joinRequest,
       setJoinRequest,
       register,
@@ -103,6 +116,7 @@ export const AuthProvider = ({ children }) => {
       logout,
       getUserTeam,
       getAllUser,
+      getAllTeam,
       getUserById,
       isLoggedIn
     }}>

@@ -9,6 +9,8 @@ function TeamPage() {
     const [teamName, setTeamName] = useState("");
     const [teamToken, setTeamToken] = useState("");
     const [userJoinRequests, setUserJoinRequests] = useState(null);
+    const [createTeam, setCreateTeam] = useState(false);
+    const [joinTeam, setJoinTeam] = useState(false);
     const navigate = useNavigate();
     const { isLoggedIn, user, setUser, setTeam } = useContext(AuthContext);
     useEffect(() => {
@@ -44,6 +46,7 @@ function TeamPage() {
     }
 
     const handleCreateTeam = async () => {
+        setCreateTeam(true)
         try {
             if (!user) {
                 // console.error("User is not LoggedIn");
@@ -54,7 +57,7 @@ function TeamPage() {
 
             // Get team name from the input box (assume it is already in the `teamName` state variable)
             if (!teamName) {
-                // console.error("Team name is required");
+                toast.error("Team name is required");
                 return;
             }
 
@@ -75,7 +78,7 @@ function TeamPage() {
 
             const result = response;
 
-            // console.log("Backend response:", result);
+            console.log("Backend response:", result);
 
             // Handle backend response
             if (response.status === 200) {
@@ -83,20 +86,27 @@ function TeamPage() {
                 toast.success("Team created successfully!");
                 const updatedUser = await api.get(`/users/${user.id}`);
                 setUser(updatedUser.data);
+                setCreateTeam(false);
                 navigate("/profile");
             } else {
                 // console.error("Failed to create team:", result.message || "Unknown error");
                 toast.error(result.message || "Failed to create team. Please try again.");
+                setCreateTeam(false);
             }
         } catch (error) {
-            // console.error("Error creating team:", error);
+            console.error("Error creating team:", error);
             toast.error("An error occurred. Please try again.");
+            setCreateTeam(false);
+        } finally {
+            setCreateTeam(false);
         }
     };
 
     const handleJoinTeam = async () => {
+        setJoinTeam(true);
         if (teamToken == null || teamToken == "") {
             toast.error("Team token is required");
+            setJoinTeam(false);
             return;
         }
         try {
@@ -106,12 +116,17 @@ function TeamPage() {
                 toast.success(response.data.message);
                 getJoinRequests();
                 setTeamToken("")
+                setJoinTeam(false);
             } else {
                 toast.error(response.response.data.message);
+                setJoinTeam(false);
             }
         } catch (error) {
             // console.error("Error creating team:", error);
+            setJoinTeam(false);
             toast.error(error.response.data.message || "An error occurred. Please try again.");
+        } finally {
+            setJoinTeam(false);
         }
     };
 
@@ -132,12 +147,13 @@ function TeamPage() {
                             value={teamName}
                             onChange={(e) => setTeamName(e.target.value)}
                             className="w-full bg-gray-700 text-white p-3 rounded-lg outline-none focus:ring-2 focus:ring-red-500 transition-all"
+                            required
                         />
                         <button
                             onClick={handleCreateTeam}
                             className="mt-4 bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-lg w-full disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
                         >
-                            Create Team
+                            {createTeam ? "Creating..." : "Create Team"}
                         </button>
                     </div>
 
@@ -151,12 +167,13 @@ function TeamPage() {
                             value={teamToken}
                             onChange={(e) => setTeamToken(e.target.value)}
                             className="w-full bg-gray-700 text-white p-3 rounded-lg outline-none focus:ring-2 focus:ring-red-500"
+                            required
                         />
                         <button
                             onClick={handleJoinTeam}
                             className="mt-4 bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-lg w-full disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
                         >
-                            Send Join Request
+                            {joinTeam ? "Request Sending..." : "Send Join Request"}
                         </button>
 
                         {userJoinRequests?.length > 0 && (
