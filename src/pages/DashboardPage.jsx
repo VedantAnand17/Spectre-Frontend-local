@@ -96,7 +96,7 @@ function DashboardPage({ closeDashboard, isDashboardOpen }) {
               <p>{team?.leaderName}</p>
             </div>
             <div className="flex justify-between">
-              <p className="font-semibold">Team Tokrn:</p>
+              <p className="font-semibold">Team Token:</p>
               <p>{team?.teamToken}</p>
             </div>
             <div className="mt-6">

@@ -72,7 +72,7 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
                                 type="text"
                                 id="collegeName"
                                 className="w-full p-2 md:p-3 bg-gray-700 text-white rounded-lg"
-                                placeholder="Thapar University"
+                                placeholder="College Name"
                                 value={collegeName}
                                 onChange={(e) => setCollegeName(e.target.value)}
                                 required
@@ -101,7 +101,7 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
                                 type="text"
                                 id="phoneNumber"
                                 className="w-full p-2 md:p-3 bg-gray-700 text-white rounded-lg disabled:bg-gray-400"
-                                placeholder="123256780"
+                                placeholder="Phone Number"
                                 value={phoneNumber}
                                 onChange={(e) => setPhoneNumber(e.target.value)}
                                 required
@@ -116,7 +116,7 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
                                 type="text"
                                 id="rollNo"
                                 className="w-full p-2 md:p-3 bg-gray-700 text-white rounded-lg disabled:bg-gray-400"
-                                placeholder="102"
+                                placeholder="Roll Number"
                                 value={rollNo}
                                 onChange={(e) => setRollNo(e.target.value)}
                                 required

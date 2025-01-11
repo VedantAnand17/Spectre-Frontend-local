@@ -136,7 +136,8 @@ function TeamPage() {
 
     return (
         <div className="bg-gray-900 w-full mx-auto text-white min-h-screen flex items-center justify-center">
-            <div className="container mx-auto px-4">
+            <img src="https://res.cloudinary.com/di3ap5nsr/image/upload/v1736535172/image_133_vtufq1_1_kkcbuh.png" className="absolute h-screen w-screen" alt="" />
+            <div className="container absolute mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
                     {/* Create Team Section */}
                     <div className="bg-gray-800 p-6 rounded-lg shadow-md min-w-lg mx-auto">
