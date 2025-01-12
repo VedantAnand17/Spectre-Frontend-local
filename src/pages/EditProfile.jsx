@@ -10,7 +10,7 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
     const [collegeName, setCollegeName] = useState(user?.collegeName || "");
     const [email, setEmail] = useState(user?.email);
     const [phoneNumber, setPhoneNumber] = useState(user?.phoneNumber);
-    const [rollNo, setRollNo] = useState(user?.rollNo);
+    // const [rollNo, setRollNo] = useState(user?.rollNo);
     const [year, setYear] = useState(user?.year || null);
     const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
 
     const handleUpdate = async (e) => {
         e.preventDefault();
-        const result = await api.patch(`/users/${user.id}`, { username, collegeName, email, phoneNumber, rollNo, year });
+        const result = await api.patch(`/users/${user.id}`, { username, collegeName, email, phoneNumber, year });
 
         if (result) {
             toast.success("Profile Updated successful!");
@@ -110,7 +110,7 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
                         </div>
 
                         {/* Roll Number */}
-                        <div>
+                        {/* <div>
                             <label htmlFor="rollNo" className="block text-sm md:text-base font-semibold mb-2 text-white">Roll Number</label>
                             <input
                                 type="text"
@@ -122,7 +122,7 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
                                 required
                                 disabled={user.teamName}
                             />
-                        </div>
+                        </div> */}
 
                         {/* Year Dropdown */}
                         <div>
@@ -133,8 +133,9 @@ function EditProfile({ closeEditModal, isEditModalOpen }) {
                                 value={year}
                                 onChange={(e) => setYear(e.target.value)}
                                 required
-                                defaultValue={"1st"}
+                                // defaultValue={"1st"}
                              >
+                                <option value="" disabled>Select Year</option>
                                 <option value="1st">1st Year</option>
                                 <option value="2nd">2nd Year</option>
                                 <option value="3rd">3rd Year</option>

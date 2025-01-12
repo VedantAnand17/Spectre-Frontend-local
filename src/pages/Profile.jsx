@@ -114,11 +114,11 @@ export default function Profile() {
                     <div className="flex flex-col items-center gap-10 rounded-3xl bg-opacity-80 max-lg:text-lg h-[80vh] justify-center text-white text-4xl" >
                         <div className="flex flex-col gap-4 max-sm:gap-1  max-sm:w-52 max-sm:pl-4">
                             {!user.verified && <div className='text-sm text-red-500'>Please update your details and verify your account to create or join a team.</div>}
-                            {!user.rollNo && <div className='text-sm text-red-500'>Please provide your roll number to create or join a team.</div>}
+                            {/* {!user.rollNo && <div className='text-sm text-red-500'>Please provide your roll number to create or join a team.</div>} */}
                             {user.username && <div className="">Name: {user.username}</div>}
                             {user.email && <div className="">Email: {user.email}</div>}
                             {user.collegeName && <div className="">College: {user.collegeName}</div>}
-                            {user.rollNo && <div className="">Roll Number: {user.rollNo}</div>}
+                            {/* {user.rollNo && <div className="">Roll Number: {user.rollNo}</div>} */}
                             {user.year && <div className="">Year: {user.year}</div>}
                             {user.phoneNumber && <div className="">Phone Number: {user.phoneNumber}</div>}
                             {user.teamName && <div className="">Team Name: {user.teamName}</div>}

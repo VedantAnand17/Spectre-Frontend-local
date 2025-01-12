@@ -111,7 +111,7 @@ function DashboardPage({ closeDashboard, isDashboardOpen }) {
                     {member.collegeName && <p className="text-sm">College: {member.collegeName}</p>}
                     {member.email && <p className="text-sm">Email: {member.email}</p>}
                     {member.phoneNumber && <p className="text-sm">Phone: {member.phoneNumber}</p>}
-                    {member.rollNo && <p className="text-sm">Roll No: {member.rollNo}</p>}
+                    {/* {member.rollNo && <p className="text-sm">Roll No: {member.rollNo}</p>} */}
                     <p className="text-sm">
                       Verified: <span className={member.verified ? "text-green-500" : "text-red-500"}>{member.verified ? "YES" : "NO"}</span>
                     </p>
@@ -141,7 +141,7 @@ function DashboardPage({ closeDashboard, isDashboardOpen }) {
                   className="border border-gray-700 rounded-lg p-4 bg-gray-700 text-white"
                 >
                   {request.user.username && <p><strong>Username:</strong> {request.user.username}</p>}
-                  {request.user.rollNo && <p><strong>Roll No:</strong> {request.user.rollNo}</p>}
+                  {/* {request.user.rollNo && <p><strong>Roll No:</strong> {request.user.rollNo}</p>} */}
                   {request.user.email && <p><strong>Email:</strong> {request.user.email}</p>}
                   {request.user.phoneNumber && <p><strong>Phone:</strong> {request.user.phoneNumber}</p>}
                   <p>

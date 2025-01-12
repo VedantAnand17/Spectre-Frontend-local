@@ -49,6 +49,7 @@ export default function AllStudents() {
           <thead>
             <tr className="bg-gray-900">
               {[
+                "Sr. No.",
                 "ID",
                 "Username",
                 "College Name",
@@ -80,6 +81,7 @@ export default function AllStudents() {
                   index % 2 === 0 ? "bg-gray-800" : "bg-gray-700"
                 }`}
               >
+                <td className="p-3 text-sm">{index + 1}</td>
                 <td className="p-3 text-sm">{user.id}</td>
                 <td className="p-3 text-sm">{user.username}</td>
                 <td className="p-3 text-sm">{user.collegeName || "N/A"}</td>

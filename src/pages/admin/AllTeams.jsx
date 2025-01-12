@@ -65,6 +65,7 @@ export default function AllTeams() {
           <thead>
             <tr className="bg-gray-900">
               {[
+                { key: "SrNo", label: "Sr. No" },
                 { key: "teamToken", label: "Team Token" },
                 { key: "teamName", label: "Team Name" },
                 { key: "leaderName", label: "Leader Name" },
@@ -89,13 +90,14 @@ export default function AllTeams() {
             </tr>
           </thead>
           <tbody>
-            {sortedTeams?.map((team) => (
-              <React.Fragment key={team.id}>
+            {sortedTeams?.map((team, index) => (
+              <React.Fragment key={index}>
                 <tr
                   className={`border-t border-gray-600 ${
                     expandedTeam === team.id ? "bg-gray-800" : "bg-gray-700"
                   }`}
                 >
+                  <td className="p-3 text-sm">{index + 1}</td>
                   <td className="p-3 text-sm">{team.teamToken}</td>
                   <td className="p-3 text-sm">{team.teamName}</td>
                   <td className="p-3 text-sm">{team.leaderName}</td>

@@ -177,7 +177,7 @@ function TeamPage() {
                             {joinTeam ? "Request Sending..." : "Send Join Request"}
                         </button>
 
-                        {userJoinRequests?.length > 0 && (
+                        {userJoinRequests && userJoinRequests.length > 0 && (
                             <div className="mt-6 bg-gray-700 p-4 rounded-lg shadow-md">
                                 <h3 className="text-lg font-bold text-white mb-3">Your Join Requests</h3>
                                 <div className="grid gap-4">
@@ -186,16 +186,16 @@ function TeamPage() {
                                             key={index}
                                             className="p-4 border border-gray-600 rounded-lg bg-gray-800 hover:shadow-lg transition-shadow"
                                         >
-                                            <p className="text-sm text-gray-300"><strong>Status:</strong> {request.requestStatus}</p>
-                                            <p className="text-sm text-gray-300"><strong>Team Name:</strong> {request.team.teamName}</p>
-                                            <p className="text-sm text-gray-300"><strong>Leader Name:</strong> {request.team.leaderName}</p>
-                                            <p className="text-sm text-gray-300"><strong>Leader Phone:</strong> {request.team.leaderPhoneNo}</p>
-                                            <p className="text-sm text-gray-300"><strong>Leader Roll No:</strong> {request.team.leaderRollNo}</p>
+                                            <p className="text-sm text-gray-300"><strong>Status:</strong> {request?.requestStatus}</p>
+                                            <p className="text-sm text-gray-300"><strong>Team Name:</strong> {request?.team?.teamName}</p>
+                                            <p className="text-sm text-gray-300"><strong>Leader Name:</strong> {request?.team?.leaderName}</p>
+                                            <p className="text-sm text-gray-300"><strong>Leader Phone:</strong> {request?.team?.leaderPhoneNo}</p>
+                                            {/* <p className="text-sm text-gray-300"><strong>Leader Roll No:</strong> {request?.team?.leaderRollNo}</p> */}
                                             <p className="text-sm text-gray-300">
-                                                <strong>Team Size:</strong> {request.team.members.length} of 5
+                                                <strong>Team Size:</strong> {request?.team?.members?.length} of 5
                                             </p>
                                             <button
-                                                onClick={() => handleDeleteRequest(request.team.id)}
+                                                onClick={() => handleDeleteRequest(request?.team?.id)}
                                                 className="mt-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg w-full transition-colors"
                                             >
                                                 Delete Request
